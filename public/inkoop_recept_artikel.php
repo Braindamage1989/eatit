@@ -30,7 +30,7 @@
 		echo "<b>Toevoegen aan database gelukt!</b>";
 	endif;
 ?>
-<h2>Toevoegen van artikel aan recept</h2>
+<h1>Toevoegen van artikel aan recept</h1>
 <form action="" method="post">
 	<table>
 		<tr>
