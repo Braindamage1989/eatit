@@ -16,8 +16,17 @@
 	
 	$melding = null;
 	
+	foreach ($_POST as $sleutel => $waarde) :
+            if ($waarde == null):
+                unset($_POST[$sleutel]);
+            endif;
+            if ($sleutel == 'verzend'):
+                 unset($_POST[$sleutel]);
+            endif;
+        endforeach;
 	
-	
+        // bepalen waar array in post vandaan komt en waarvoor deze gebruikt word, geen nut is verwijderen of unsetten
+        
 	print_r($_POST);
 	
 	include("../includes/inc_connect.php");
