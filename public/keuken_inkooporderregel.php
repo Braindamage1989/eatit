@@ -52,16 +52,6 @@
 	</table>
 	
 	<br/>
-	<form action = "keuken_wijzig_inkooporderregel.php" method = "post">
-		Inkooporderregel die gewijzigd moet worden:<br/> 
-		<?php echo "<select name = wijzig_inkooporderregelnr>";
-		while($orderregelnr_row = mysqli_fetch_assoc($orderregelnr_result)){
-			echo " <option value = $orderregelnr_row[inkooporderregelnr]> $orderregelnr_row[inkooporderregelnr]</option>";
-		} echo "</select>"; 
-		?> 
-		<input type = "submit" name = "wijzig_inkooporderregel" value = "Wijzig">
-	</form>
-	<br/>
 	<br/>
 	<br/>
 	<form action = "keuken_inkooporder.php" method = "post">
