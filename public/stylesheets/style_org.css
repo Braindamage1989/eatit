@@ -46,6 +46,11 @@
 	font-weight: bold;
 }
 
+.groenmelding{
+	color: green;
+	font-weight: bold;
+}
+
 a:link {
     color: white;
 }
