@@ -8,7 +8,7 @@
 	 
 	  <nav role="navigation" id="access">
 	    <ul id="menu">
-			<li class="active"><a href="../public/index.php">Home</a></li><!-- whitespace
+			<li class="active"><a href="../medewerkers/index.php">Home</a></li><!-- whitespace
 	                --><li><a href="../public/bestelpagina.php">Bestellen</a></li><!-- whitespace
 	                --><li><a href="../public/menukaart.php">Gerechten</a></li><!-- whitespace
 	                --><li><a href="../public/uitloggen.php">Uitloggen</a></li>
