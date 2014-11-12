@@ -15,6 +15,9 @@ error_reporting(E_ALL);
 		header('Location: inkoop.php');
 	endif;
         
+        $categorie_query = "SELECT DISTINCT categorie FROM recept;";
+        $categorie_result = mysqli_query($con, $categorie_query);
+        
         $weeknr_query = "SELECT MAX(weeknr) AS weeknr FROM recept;";
         $weeknr_result = mysqli_query($con, $weeknr_query);
         while($weeknr_row = mysqli_fetch_assoc($weeknr_result)) {
@@ -51,8 +54,14 @@ error_reporting(E_ALL);
 			<td></td>
 		</tr>
 		<tr>
-			<td>Categorie</td>
-			<td><input type="text" name="categorie"/></td>
+                    <td>Categorie</td>
+                            <td><select name="categorie">
+                                <?php   
+                                while ($categorie_row = mysqli_fetch_assoc($categorie_result)) :
+                                echo "<option value=\"". $categorie_row['categorie'] ."\">". $categorie_row['categorie'] ."</option>"; 
+                                endwhile;
+                                ?>
+                            </select</td>
 			<td></td>
 		</tr>
 	</table>
