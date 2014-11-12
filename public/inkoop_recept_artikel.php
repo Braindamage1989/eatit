@@ -1,4 +1,6 @@
 <?php
+ini_set('display_errors', 1); 
+error_reporting(E_ALL);
 	require("../includes/layouts/inc_header.php");
 	require("../includes/layouts/inc_nav.php");
 	
@@ -20,18 +22,29 @@
 	$select_recept = "SELECT * FROM recept";
 	$result_recept = mysqli_query($con, $select_recept)
 		or die("Fout bij select_recept: ".mysqli_error($con));
+        
+        
 	
 	if(isset($_POST['opslaan'])) :
+            $dubbel_query = "SELECT * FROM artikelrecept WHERE artikelnr = {$_POST['artikelnr']} AND receptnr = {$_POST['receptnr']};";
+            $dubbel_result = mysqli_query($con, $dubbel_query);
+            if(mysqli_num_rows($dubbel_result) >=1) {
+                $melding = "Dit artikelnr bestaat al in het geselecteerde recept.";
+            }else {
 		$insert_into = "INSERT INTO artikelrecept (receptnr, artikelnr, aantal)";
 		$insert_into .= "VALUES (". $_POST['receptnr'] .", ". $_POST['artikelnr'] .", ". $_POST['aantal'] .")";
 		mysqli_query($con, $insert_into)
 			or die("Fout bij insert_into: ".mysqli_error($con));
 				
-		echo "<b>Toevoegen aan database gelukt!</b>";
+		$melding = "<b>Toevoegen aan database gelukt!</b>";
+            }
 	endif;
 ?>
 <h1>Toevoegen van artikel aan recept</h1>
 <form action="" method="post">
+    <?php if(isset($melding)) {
+            echo $melding;
+        }; ?>
 	<table>
 		<tr>
 			<td>Artikelnummer</td>
