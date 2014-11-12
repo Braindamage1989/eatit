@@ -11,7 +11,7 @@
 ?>
 <h2>Verkoop</h2>
 
-<form action = "keuken_verkooporder.php" method = "post">
+<form action = "verkooporder.php" method = "post">
 	<table>
 		<tr>
 			<td> <input type = "submit" name = "verzend_order" value = "Geplaatste orders"</td>
@@ -19,14 +19,6 @@
 	</table>
 </form>
 
-<br/>
-<form action = "keuken_recept.php" method = "post">
-	<table>
-		<tr>
-			<td> <input type = "submit" name = "verzend_recept" value = "Recepten"</td>
-		</tr>
-	</table>
-</form>
 <?php
 	require("../includes/layouts/inc_footer.php");
 ?>
