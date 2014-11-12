@@ -3,7 +3,12 @@
 	require("../includes/layouts/inc_nav.php");
 	
 	include("../includes/inc_connect.php");
+        include("../includes/inc_functions.php");
 	session_start();
+        
+        if(isset($_SESSION['medewerkernr'])) {
+            redirect_to("medewerkers/index.php");
+        }
 	
 	if(isset($_POST['inloggen'])) :
 		$melding = null;
