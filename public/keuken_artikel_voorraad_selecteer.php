@@ -20,7 +20,7 @@
 		header('Location: keuken.php');
 	endif;
 ?>
-	<h2>Voorraden van artikel bijwerken</h2>
+	<h1>Voorraden van artikel bijwerken</h1>
 	<form action="keuken_artikel_voorraad.php" method="post">
 		<select name="artikelnr">
 			<?php

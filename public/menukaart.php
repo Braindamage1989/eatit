@@ -10,7 +10,7 @@
 	$result_categorie = mysqli_query($con, $query_categorie);
 	
 ?>
-<h2>Menukaart</h2>
+<h1>Menukaart</h1>
 	<table cellspacing="10">
 			<?php
 	while($row_categorie = mysqli_fetch_assoc($result_categorie)) {

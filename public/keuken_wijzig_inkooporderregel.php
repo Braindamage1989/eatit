@@ -28,7 +28,7 @@
 	
 ?>
 
-<h2>Wijziging van inkooporderregel <?php echo $query_row['inkooporderregelnr']; ?></h2>
+<h1>Wijziging van inkooporderregel <?php echo $query_row['inkooporderregelnr']; ?></h1>
 
 <form action = "keuken_wijzig_inkooporderregel_processing.php" method = "post">
 	<table>

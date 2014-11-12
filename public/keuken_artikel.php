@@ -33,7 +33,7 @@
 				WHERE rc.receptnr = {$receptnr};";
 	$query_result = mysqli_query($con, $query);
 ?>
-<h2>Artikelen</h2>
+<h1>Artikelen</h1>
 <table>
 	<tr><td>Artikelnummer</td> <td>Omschrijving</td></tr>
 	<?php while($query_row = mysqli_fetch_assoc($query_result)) { ?>

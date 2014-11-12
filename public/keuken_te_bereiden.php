@@ -15,7 +15,7 @@
 	$ordernr_query = "SELECT ordernr FROM `order`;";
 	$ordernr_result = mysqli_query($con, $ordernr_query);
 ?>	
-	<h2>Te bereiden maaltijden</h2>
+	<h1>Te bereiden maaltijden</h1>
 	<table cellspacing = "10">
 		
 		<?php
