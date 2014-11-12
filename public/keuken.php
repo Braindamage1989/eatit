@@ -30,7 +30,7 @@
 </form>
 <br/>
 
-<form action = "keuken_verkooporder.php" method = "post">
+<form action = "verkooporder.php" method = "post">
 	<table>
 		<tr>
 			<td> <input type = "submit" name = "verzend_verkooporder" value = "Verkooporders" /></td>
