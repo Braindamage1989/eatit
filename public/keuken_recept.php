@@ -42,7 +42,6 @@
 	<br/>
 	<br/>
 
-	}else { ?>
 	<form action = "keuken.php" method = "post">
 		<input type = "submit" name = "keuken" value = "Terug naar Keuken">
 	</form>
