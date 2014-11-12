@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.1.12
+-- version 4.2.7.1
 -- http://www.phpmyadmin.net
 --
--- Host: localhost
--- Generation Time: Nov 07, 2014 at 09:09 
--- Server version: 5.6.16
--- PHP Version: 5.5.11
+-- Machine: 127.0.0.1
+-- Gegenereerd op: 12 nov 2014 om 10:46
+-- Serverversie: 5.6.20
+-- PHP-versie: 5.5.15
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,29 +17,28 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8 */;
 
 --
--- Database: `eatit`
+-- Databank: `eatit`
 --
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `artikel`
+-- Tabelstructuur voor tabel `artikel`
 --
 
 CREATE TABLE IF NOT EXISTS `artikel` (
-  `artikelnr` int(8) NOT NULL AUTO_INCREMENT,
+`artikelnr` int(8) NOT NULL,
   `omschrijving` varchar(125) NOT NULL,
   `tv` int(8) NOT NULL,
   `ib` int(8) NOT NULL,
   `gr` int(8) NOT NULL,
   `bd` int(8) NOT NULL,
   `artikelprijs` float NOT NULL,
-  `soort` varchar(125) NOT NULL,
-  PRIMARY KEY (`artikelnr`)
+  `soort` varchar(125) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
 
 --
--- Dumping data for table `artikel`
+-- Gegevens worden geëxporteerd voor tabel `artikel`
 --
 
 INSERT INTO `artikel` (`artikelnr`, `omschrijving`, `tv`, `ib`, `gr`, `bd`, `artikelprijs`, `soort`) VALUES
@@ -64,20 +63,17 @@ INSERT INTO `artikel` (`artikelnr`, `omschrijving`, `tv`, `ib`, `gr`, `bd`, `art
 -- --------------------------------------------------------
 
 --
--- Table structure for table `artikelrecept`
+-- Tabelstructuur voor tabel `artikelrecept`
 --
 
 CREATE TABLE IF NOT EXISTS `artikelrecept` (
   `artikelnr` int(8) NOT NULL,
   `receptnr` int(8) NOT NULL,
-  `aantal` int(8) NOT NULL,
-  PRIMARY KEY (`artikelnr`,`receptnr`),
-  KEY `artikelnr` (`artikelnr`),
-  KEY `receptnr` (`receptnr`)
+  `aantal` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Dumping data for table `artikelrecept`
+-- Gegevens worden geëxporteerd voor tabel `artikelrecept`
 --
 
 INSERT INTO `artikelrecept` (`artikelnr`, `receptnr`, `aantal`) VALUES
@@ -131,44 +127,39 @@ INSERT INTO `artikelrecept` (`artikelnr`, `receptnr`, `aantal`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `inkooporder`
+-- Tabelstructuur voor tabel `inkooporder`
 --
 
 CREATE TABLE IF NOT EXISTS `inkooporder` (
-  `inkoopordernr` int(8) NOT NULL AUTO_INCREMENT,
+`inkoopordernr` int(8) NOT NULL,
   `lev_nr` int(8) NOT NULL,
   `orderdatum` date NOT NULL,
   `leverdatum` date NOT NULL,
   `status` int(1) NOT NULL,
-  `betaald` int(1) NOT NULL,
-  PRIMARY KEY (`inkoopordernr`),
-  KEY `lev_nr` (`lev_nr`)
+  `betaald` int(1) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `inkooporderregel`
+-- Tabelstructuur voor tabel `inkooporderregel`
 --
 
 CREATE TABLE IF NOT EXISTS `inkooporderregel` (
-  `inkooporderregelnr` int(8) NOT NULL AUTO_INCREMENT,
+`inkooporderregelnr` int(8) NOT NULL,
   `inkoopordernr` int(8) NOT NULL,
   `artikelnr` int(8) NOT NULL,
-  `aantal` int(8) NOT NULL,
-  PRIMARY KEY (`inkooporderregelnr`),
-  KEY `artikelnr` (`artikelnr`),
-  KEY `inkoopordernr` (`inkoopordernr`)
+  `aantal` int(8) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `klant`
+-- Tabelstructuur voor tabel `klant`
 --
 
 CREATE TABLE IF NOT EXISTS `klant` (
-  `klantnr` int(8) NOT NULL AUTO_INCREMENT,
+`klantnr` int(8) NOT NULL,
   `voornaam` varchar(125) NOT NULL,
   `achternaam` varchar(125) NOT NULL,
   `adres` varchar(125) NOT NULL,
@@ -176,12 +167,11 @@ CREATE TABLE IF NOT EXISTS `klant` (
   `woonplaats` varchar(125) NOT NULL,
   `telefoonnr` varchar(10) NOT NULL,
   `email` varchar(125) NOT NULL,
-  `wachtwoord` varchar(125) NOT NULL,
-  PRIMARY KEY (`klantnr`)
+  `wachtwoord` varchar(125) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
--- Dumping data for table `klant`
+-- Gegevens worden geëxporteerd voor tabel `klant`
 --
 
 INSERT INTO `klant` (`klantnr`, `voornaam`, `achternaam`, `adres`, `postcode`, `woonplaats`, `telefoonnr`, `email`, `wachtwoord`) VALUES
@@ -194,48 +184,22 @@ INSERT INTO `klant` (`klantnr`, `voornaam`, `achternaam`, `adres`, `postcode`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `klantroutelijst`
---
-
-CREATE TABLE IF NOT EXISTS `klantroutelijst` (
-  `klantroutenr` int(8) NOT NULL AUTO_INCREMENT,
-  `klantnr` int(8) NOT NULL,
-  `routenr` int(8) NOT NULL,
-  `ordernr` int(8) NOT NULL,
-  PRIMARY KEY (`klantroutenr`),
-  UNIQUE KEY `ordernr_2` (`ordernr`),
-  KEY `routenr` (`routenr`),
-  KEY `klantnr` (`klantnr`),
-  KEY `ordernr` (`ordernr`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `klantroutelijst`
---
-
-INSERT INTO `klantroutelijst` (`klantroutenr`, `klantnr`, `routenr`, `ordernr`) VALUES
-(1, 1, 1, 1);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `leveranciers`
+-- Tabelstructuur voor tabel `leveranciers`
 --
 
 CREATE TABLE IF NOT EXISTS `leveranciers` (
-  `lev_nr` int(8) NOT NULL AUTO_INCREMENT,
+`lev_nr` int(8) NOT NULL,
   `lev_naam` varchar(125) NOT NULL,
   `lev_adres` varchar(125) NOT NULL,
   `lev_postcode` varchar(125) NOT NULL,
   `lev_plaats` varchar(125) NOT NULL,
   `lev_telefoonnr` int(10) NOT NULL,
   `lev_rekeningnr` int(10) NOT NULL,
-  `lev_soort` varchar(125) NOT NULL,
-  PRIMARY KEY (`lev_nr`)
+  `lev_soort` varchar(125) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
 
 --
--- Dumping data for table `leveranciers`
+-- Gegevens worden geëxporteerd voor tabel `leveranciers`
 --
 
 INSERT INTO `leveranciers` (`lev_nr`, `lev_naam`, `lev_adres`, `lev_postcode`, `lev_plaats`, `lev_telefoonnr`, `lev_rekeningnr`, `lev_soort`) VALUES
@@ -247,22 +211,21 @@ INSERT INTO `leveranciers` (`lev_nr`, `lev_naam`, `lev_adres`, `lev_postcode`, `
 -- --------------------------------------------------------
 
 --
--- Table structure for table `medewerkers`
+-- Tabelstructuur voor tabel `medewerkers`
 --
 
 CREATE TABLE IF NOT EXISTS `medewerkers` (
-  `medewerkernr` int(8) NOT NULL AUTO_INCREMENT,
+`medewerkernr` int(8) NOT NULL,
   `voornaam` varchar(125) NOT NULL,
   `achternaam` varchar(125) NOT NULL,
   `telefoonnr` varchar(10) NOT NULL,
   `functie` varchar(125) NOT NULL,
   `wachtwoord` varchar(125) NOT NULL,
-  `email` varchar(125) NOT NULL,
-  PRIMARY KEY (`medewerkernr`)
+  `email` varchar(125) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=23 ;
 
 --
--- Dumping data for table `medewerkers`
+-- Gegevens worden geëxporteerd voor tabel `medewerkers`
 --
 
 INSERT INTO `medewerkers` (`medewerkernr`, `voornaam`, `achternaam`, `telefoonnr`, `functie`, `wachtwoord`, `email`) VALUES
@@ -292,67 +255,47 @@ INSERT INTO `medewerkers` (`medewerkernr`, `voornaam`, `achternaam`, `telefoonnr
 -- --------------------------------------------------------
 
 --
--- Table structure for table `order`
+-- Tabelstructuur voor tabel `order`
 --
 
 CREATE TABLE IF NOT EXISTS `order` (
-  `ordernr` int(8) NOT NULL AUTO_INCREMENT,
+`ordernr` int(8) NOT NULL,
   `klantnr` int(8) NOT NULL,
   `status` int(1) NOT NULL,
   `betaald` int(1) NOT NULL,
   `ordertijd` datetime NOT NULL,
-  PRIMARY KEY (`ordernr`),
-  KEY `klantnr` (`klantnr`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
-
---
--- Dumping data for table `order`
---
-
-INSERT INTO `order` (`ordernr`, `klantnr`, `status`, `betaald`, `ordertijd`) VALUES
-(1, 1, 1, 5, '2014-11-06 21:36:12');
+  `routenr` int(8) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `orderregel`
+-- Tabelstructuur voor tabel `orderregel`
 --
 
 CREATE TABLE IF NOT EXISTS `orderregel` (
-  `orderregelnr` int(8) NOT NULL AUTO_INCREMENT,
+`orderregelnr` int(8) NOT NULL,
   `ordernr` int(8) NOT NULL,
   `receptnr` int(8) NOT NULL,
-  `aantal` int(8) NOT NULL,
-  PRIMARY KEY (`orderregelnr`),
-  KEY `ordernr` (`ordernr`,`receptnr`),
-  KEY `receptnr` (`receptnr`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
-
---
--- Dumping data for table `orderregel`
---
-
-INSERT INTO `orderregel` (`orderregelnr`, `ordernr`, `receptnr`, `aantal`) VALUES
-(1, 1, 2, 2),
-(2, 1, 9, 1);
+  `aantal` int(8) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `recept`
+-- Tabelstructuur voor tabel `recept`
 --
 
 CREATE TABLE IF NOT EXISTS `recept` (
-  `receptnr` int(8) NOT NULL AUTO_INCREMENT,
+`receptnr` int(8) NOT NULL,
   `omschrijving` varchar(125) NOT NULL,
   `verkoopprijs` float NOT NULL,
   `weeknr` varchar(125) NOT NULL,
-  `categorie` varchar(125) NOT NULL,
-  PRIMARY KEY (`receptnr`)
+  `categorie` varchar(125) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
 
 --
--- Dumping data for table `recept`
+-- Gegevens worden geëxporteerd voor tabel `recept`
 --
 
 INSERT INTO `recept` (`receptnr`, `omschrijving`, `verkoopprijs`, `weeknr`, `categorie`) VALUES
@@ -374,80 +317,183 @@ INSERT INTO `recept` (`receptnr`, `omschrijving`, `verkoopprijs`, `weeknr`, `cat
 -- --------------------------------------------------------
 
 --
--- Table structure for table `routelijst`
+-- Tabelstructuur voor tabel `routelijst`
 --
 
 CREATE TABLE IF NOT EXISTS `routelijst` (
-  `routenr` int(8) NOT NULL AUTO_INCREMENT,
-  `stop1` varchar(125) NOT NULL,
-  `stop2` varchar(125) NOT NULL,
-  `stop3` varchar(125) NOT NULL,
-  `stop4` varchar(125) NOT NULL,
-  `stop5` varchar(125) NOT NULL,
+`routenr` int(8) NOT NULL,
   `maximale_uitrijtijd` datetime NOT NULL,
   `postcodegebied` int(4) NOT NULL,
-  `medewerkernr` int(8) NOT NULL,
-  PRIMARY KEY (`routenr`),
-  KEY `medewerkernr` (`medewerkernr`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
+  `medewerkernr` int(8) NOT NULL
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
--- Dumping data for table `routelijst`
---
-
-INSERT INTO `routelijst` (`routenr`, `stop1`, `stop2`, `stop3`, `stop4`, `stop5`, `maximale_uitrijtijd`, `postcodegebied`, `medewerkernr`) VALUES
-(1, 'Beumeesweg 180', '', '', '', '', '2014-11-06 22:21:12', 9712, 13);
-
---
--- Constraints for dumped tables
+-- Indexen voor geëxporteerde tabellen
 --
 
 --
--- Constraints for table `artikelrecept`
+-- Indexen voor tabel `artikel`
+--
+ALTER TABLE `artikel`
+ ADD PRIMARY KEY (`artikelnr`);
+
+--
+-- Indexen voor tabel `artikelrecept`
 --
 ALTER TABLE `artikelrecept`
-  ADD CONSTRAINT `arrec_ar` FOREIGN KEY (`artikelnr`) REFERENCES `artikel` (`artikelnr`),
-  ADD CONSTRAINT `arrec_re` FOREIGN KEY (`receptnr`) REFERENCES `recept` (`receptnr`);
+ ADD PRIMARY KEY (`artikelnr`,`receptnr`), ADD KEY `artikelnr` (`artikelnr`), ADD KEY `receptnr` (`receptnr`);
 
 --
--- Constraints for table `inkooporder`
+-- Indexen voor tabel `inkooporder`
 --
 ALTER TABLE `inkooporder`
-  ADD CONSTRAINT `inko_lev` FOREIGN KEY (`lev_nr`) REFERENCES `leveranciers` (`lev_nr`);
+ ADD PRIMARY KEY (`inkoopordernr`), ADD KEY `lev_nr` (`lev_nr`);
 
 --
--- Constraints for table `inkooporderregel`
+-- Indexen voor tabel `inkooporderregel`
 --
 ALTER TABLE `inkooporderregel`
-  ADD CONSTRAINT `inkor_art` FOREIGN KEY (`artikelnr`) REFERENCES `artikel` (`artikelnr`),
-  ADD CONSTRAINT `inkor_inko` FOREIGN KEY (`inkoopordernr`) REFERENCES `inkooporder` (`inkoopordernr`);
+ ADD PRIMARY KEY (`inkooporderregelnr`), ADD KEY `artikelnr` (`artikelnr`), ADD KEY `inkoopordernr` (`inkoopordernr`);
 
 --
--- Constraints for table `klantroutelijst`
+-- Indexen voor tabel `klant`
 --
-ALTER TABLE `klantroutelijst`
-  ADD CONSTRAINT `krl_kla` FOREIGN KEY (`klantnr`) REFERENCES `klant` (`klantnr`),
-  ADD CONSTRAINT `krl_or` FOREIGN KEY (`ordernr`) REFERENCES `order` (`ordernr`),
-  ADD CONSTRAINT `krl_rou` FOREIGN KEY (`routenr`) REFERENCES `routelijst` (`routenr`);
+ALTER TABLE `klant`
+ ADD PRIMARY KEY (`klantnr`);
 
 --
--- Constraints for table `order`
+-- Indexen voor tabel `leveranciers`
+--
+ALTER TABLE `leveranciers`
+ ADD PRIMARY KEY (`lev_nr`);
+
+--
+-- Indexen voor tabel `medewerkers`
+--
+ALTER TABLE `medewerkers`
+ ADD PRIMARY KEY (`medewerkernr`);
+
+--
+-- Indexen voor tabel `order`
 --
 ALTER TABLE `order`
-  ADD CONSTRAINT `or_kl` FOREIGN KEY (`klantnr`) REFERENCES `klant` (`klantnr`);
+ ADD PRIMARY KEY (`ordernr`), ADD KEY `klantnr` (`klantnr`), ADD KEY `routenr` (`routenr`);
 
 --
--- Constraints for table `orderregel`
+-- Indexen voor tabel `orderregel`
 --
 ALTER TABLE `orderregel`
-  ADD CONSTRAINT `orr_rec` FOREIGN KEY (`receptnr`) REFERENCES `recept` (`receptnr`),
-  ADD CONSTRAINT `or_o` FOREIGN KEY (`ordernr`) REFERENCES `order` (`ordernr`);
+ ADD PRIMARY KEY (`orderregelnr`), ADD KEY `ordernr` (`ordernr`,`receptnr`), ADD KEY `receptnr` (`receptnr`);
 
 --
--- Constraints for table `routelijst`
+-- Indexen voor tabel `recept`
+--
+ALTER TABLE `recept`
+ ADD PRIMARY KEY (`receptnr`);
+
+--
+-- Indexen voor tabel `routelijst`
 --
 ALTER TABLE `routelijst`
-  ADD CONSTRAINT `rl_med` FOREIGN KEY (`medewerkernr`) REFERENCES `medewerkers` (`medewerkernr`);
+ ADD PRIMARY KEY (`routenr`), ADD KEY `medewerkernr` (`medewerkernr`);
+
+--
+-- AUTO_INCREMENT voor geëxporteerde tabellen
+--
+
+--
+-- AUTO_INCREMENT voor een tabel `artikel`
+--
+ALTER TABLE `artikel`
+MODIFY `artikelnr` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=18;
+--
+-- AUTO_INCREMENT voor een tabel `inkooporder`
+--
+ALTER TABLE `inkooporder`
+MODIFY `inkoopordernr` int(8) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT voor een tabel `inkooporderregel`
+--
+ALTER TABLE `inkooporderregel`
+MODIFY `inkooporderregelnr` int(8) NOT NULL AUTO_INCREMENT;
+--
+-- AUTO_INCREMENT voor een tabel `klant`
+--
+ALTER TABLE `klant`
+MODIFY `klantnr` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+--
+-- AUTO_INCREMENT voor een tabel `leveranciers`
+--
+ALTER TABLE `leveranciers`
+MODIFY `lev_nr` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT voor een tabel `medewerkers`
+--
+ALTER TABLE `medewerkers`
+MODIFY `medewerkernr` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=23;
+--
+-- AUTO_INCREMENT voor een tabel `order`
+--
+ALTER TABLE `order`
+MODIFY `ordernr` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1;
+--
+-- AUTO_INCREMENT voor een tabel `orderregel`
+--
+ALTER TABLE `orderregel`
+MODIFY `orderregelnr` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1;
+--
+-- AUTO_INCREMENT voor een tabel `recept`
+--
+ALTER TABLE `recept`
+MODIFY `receptnr` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=15;
+--
+-- AUTO_INCREMENT voor een tabel `routelijst`
+--
+ALTER TABLE `routelijst`
+MODIFY `routenr` int(8) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=1;
+--
+-- Beperkingen voor geëxporteerde tabellen
+--
+
+--
+-- Beperkingen voor tabel `artikelrecept`
+--
+ALTER TABLE `artikelrecept`
+ADD CONSTRAINT `arrec_ar` FOREIGN KEY (`artikelnr`) REFERENCES `artikel` (`artikelnr`),
+ADD CONSTRAINT `arrec_re` FOREIGN KEY (`receptnr`) REFERENCES `recept` (`receptnr`);
+
+--
+-- Beperkingen voor tabel `inkooporder`
+--
+ALTER TABLE `inkooporder`
+ADD CONSTRAINT `inko_lev` FOREIGN KEY (`lev_nr`) REFERENCES `leveranciers` (`lev_nr`);
+
+--
+-- Beperkingen voor tabel `inkooporderregel`
+--
+ALTER TABLE `inkooporderregel`
+ADD CONSTRAINT `inkor_art` FOREIGN KEY (`artikelnr`) REFERENCES `artikel` (`artikelnr`),
+ADD CONSTRAINT `inkor_inko` FOREIGN KEY (`inkoopordernr`) REFERENCES `inkooporder` (`inkoopordernr`);
+
+--
+-- Beperkingen voor tabel `order`
+--
+ALTER TABLE `order`
+ADD CONSTRAINT `or_kl` FOREIGN KEY (`klantnr`) REFERENCES `klant` (`klantnr`),
+ADD CONSTRAINT `or_rou` FOREIGN KEY (`routenr`) REFERENCES `routelijst` (`routenr`);
+
+--
+-- Beperkingen voor tabel `orderregel`
+--
+ALTER TABLE `orderregel`
+ADD CONSTRAINT `or_o` FOREIGN KEY (`ordernr`) REFERENCES `order` (`ordernr`),
+ADD CONSTRAINT `orr_rec` FOREIGN KEY (`receptnr`) REFERENCES `recept` (`receptnr`);
+
+--
+-- Beperkingen voor tabel `routelijst`
+--
+ALTER TABLE `routelijst`
+ADD CONSTRAINT `rl_med` FOREIGN KEY (`medewerkernr`) REFERENCES `medewerkers` (`medewerkernr`);
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
