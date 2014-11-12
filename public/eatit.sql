@@ -193,7 +193,7 @@ CREATE TABLE IF NOT EXISTS `leveranciers` (
   `lev_adres` varchar(125) NOT NULL,
   `lev_postcode` varchar(125) NOT NULL,
   `lev_plaats` varchar(125) NOT NULL,
-  `lev_telefoonnr` int(10) NOT NULL,
+  `lev_telefoonnr` varchar(10) NOT NULL,
   `lev_rekeningnr` int(10) NOT NULL,
   `lev_soort` varchar(125) NOT NULL
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
