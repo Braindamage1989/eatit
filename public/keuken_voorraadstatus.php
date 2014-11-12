@@ -15,9 +15,12 @@
 	$query = "SELECT * FROM artikel WHERE tv <= {$limiet};";
 	$query_result = mysqli_query($con, $query);
 ?>
-<h2>Voorraadstatus</h2>
+<h1>Voorraadstatus</h1>
 <table>
 <?php
+        if(mysqli_num_rows($query_result) == 0) {
+            echo "Alle artikelen zijn nog op voorraad.";
+        }
 	while($query_row = mysqli_fetch_assoc($query_result)) {
 ?>
 	<tr><td>Artikelnr <?php echo $query_row['artikelnr'] . " heeft een voorraad van " . $query_row['tv']. " en moet worden bijbesteld." ?></td></tr>
