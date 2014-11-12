@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `artikel` (
   `bd` int(8) NOT NULL,
   `artikelprijs` float NOT NULL,
   `soort` varchar(125) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=25 ;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `artikel`
@@ -58,7 +58,14 @@ INSERT INTO `artikel` (`artikelnr`, `omschrijving`, `tv`, `ib`, `gr`, `bd`, `art
 (14, 'Boontjes', 20, 0, 0, 0, 0.5, 'Aardappels, groenten en fruit'),
 (15, 'Spinazie', 19, 0, 0, 0, 0.45, 'Aardappels, groenten en fruit'),
 (16, 'Wortels', 20, 0, 0, 0, 0.4, 'Aardappels, groenten en fruit'),
-(17, 'Biefstuk', 20, 0, 0, 0, 1.5, 'Vlees');
+(17, 'Biefstuk', 20, 0, 0, 0, 1.5, 'Vlees'),
+(18, 'Cola 1l', 20, 0, 0, 0, 1, 'Side order'),
+(19, 'Sinas 1l', 20, 0, 0, 0, 1, 'Side order'),
+(20, 'Sprite 1l', 20, 0, 0, 0, 1, 'Side order'),
+(21, 'Rode wijn 1l', 20, 0, 0, 0, 1.2, 'Side order'),
+(22, 'Witte wijn 1l', 20, 0, 0, 0, 1.2, 'Side order'),
+(23, 'Wijn van het huis 1l', 20, 0, 0, 0, 4, 'Side order'),
+(24, 'Hertog Jan sixpack', 20, 0, 0, 0, 1.2, 'Side order');
 
 -- --------------------------------------------------------
 
@@ -122,7 +129,14 @@ INSERT INTO `artikelrecept` (`artikelnr`, `receptnr`, `aantal`) VALUES
 (17, 11, 1),
 (17, 12, 1),
 (17, 13, 1),
-(17, 14, 1);
+(17, 14, 1),
+(18, 15, 1),
+(19, 16, 1),
+(20, 17, 1),
+(21, 18, 1),
+(22, 19, 1),
+(23, 20, 1),
+(24, 21, 1);
 
 -- --------------------------------------------------------
 
@@ -196,7 +210,7 @@ CREATE TABLE IF NOT EXISTS `leveranciers` (
   `lev_telefoonnr` varchar(10) NOT NULL,
   `lev_rekeningnr` int(10) NOT NULL,
   `lev_soort` varchar(125) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=5 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=6 ;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `leveranciers`
@@ -206,7 +220,8 @@ INSERT INTO `leveranciers` (`lev_nr`, `lev_naam`, `lev_adres`, `lev_postcode`, `
 (1, 'Huuskes', 'Gronausestraat 425', '7503 GC', 'Enschede', 534808707, 0, 'Vlees'),
 (2, 'Zainab', 'Keulsche Vaart 15D', '3621 MX', 'Breukelen', 346262933, 0, 'Aardappels, groenten en fruit'),
 (3, 'Agrico', 'Puttensteinsveldweg 22', '8091 BS', 'Wezep', 436974521, 0, 'Buitenlands ingredienten'),
-(4, 'Hanos', 'Hoofdweg 964B', '6498 HD', 'Groningen', 501364897, 0, 'Vis');
+(4, 'Hanos', 'Hoofdweg 964B', '6498 HD', 'Groningen', 501364897, 0, 'Vis'),
+(5, 'Gall en Gall', 'Hoofdweg 45', '9711 RB', 'Groningen', 501364563, 0, 'Drank');
 
 -- --------------------------------------------------------
 
@@ -292,7 +307,7 @@ CREATE TABLE IF NOT EXISTS `recept` (
   `verkoopprijs` float NOT NULL,
   `weeknr` varchar(125) NOT NULL,
   `categorie` varchar(125) NOT NULL
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=15 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=22 ;
 
 --
 -- Gegevens worden geëxporteerd voor tabel `recept`
@@ -312,7 +327,14 @@ INSERT INTO `recept` (`receptnr`, `omschrijving`, `verkoopprijs`, `weeknr`, `cat
 (11, 'Aardappels met spruitjes, biefstuk en jus', 5.6, '44', 'Hollandse kost'),
 (12, 'Aardappels met boontjes, biefstuk en jus', 5.35, '44', 'Hollandse kost'),
 (13, 'Aardappels met spinazie, biefstuk en jus', 5.5, '44', 'Hollandse kost'),
-(14, 'Aardappels met wortels, biefstuk en jus', 5.35, '46', 'Hollandse kost');
+(14, 'Aardappels met wortels, biefstuk en jus', 5.35, '46', 'Hollandse kost'),
+(15, 'Cola 1l', 4.5, null, 'Side order'),
+(16, 'Sinas 1l', 4.5, null, 'Side order'),
+(17, 'Sprite 1l', 4.5, null, 'Side order'),
+(18, 'Rode wijn 1l', 5, null, 'Side order'),
+(19, 'Witte wijn 1l', 5, null, 'Side order'),
+(20, 'Wijn van het huis 1l', 7, null, 'Side order'),
+(21, 'Hertog Jan sixpack', 4.5, null, 'Side order');
 
 -- --------------------------------------------------------
 
