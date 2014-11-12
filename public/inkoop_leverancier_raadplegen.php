@@ -39,6 +39,8 @@
 	<input type = "submit" name = "verzend_recept" value = "Bewerk gegevens">
 	</form>
 	<br/>
+        <br/>
+        <a href="inkoop_leverancier_toevoegen.php">Leverancier toevoegen</a><br/>
 <?php
 	if(isset($_POST['Leverancier toevoegen'])):
 	header('Location: inkoop_leverancier_toevoegen.php');
