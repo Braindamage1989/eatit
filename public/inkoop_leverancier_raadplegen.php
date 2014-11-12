@@ -36,25 +36,20 @@
 			</tr>
 	<?php } ?>
 	</table>
-	<input type = "submit" name = "verzend_recept" value = "Bewerk gegevens">
-	</form>
-	<br/>
+	<input type = "submit" name = "Leverancier_bewerken" value = "Bewerk gegevens">
+        </form>
+        <br/>  
         <br/>
-        <a href="inkoop_leverancier_toevoegen.php">Leverancier toevoegen</a><br/>
-<?php
-	if(isset($_POST['Leverancier toevoegen'])):
-	header('Location: inkoop_leverancier_toevoegen.php');
-	endif;
-?>
-	<br/>
-	<br/>
-<?php
-?>
-	<form action = "inkoop.php" method = "post">
-		<input type = "submit" name = "verkoop" value = "Terug naar Inkoop">
+        <form action = "inkoop_leverancier_toevoegen.php" method = "post">
+		<input type = "submit" name = "Leverancier_toevoegen" value = "Leverancier toevoegen">
+        </form>
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+        <form action = "inkoop.php" method = "post">
+		<input type = "submit" name = "Inkoop" value = "terug">
 	</form>
-	
-<br />
 <?php
 	if(isset($_POST['terug'])):
 		header('Location: inkoop.php');
