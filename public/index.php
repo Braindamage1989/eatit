@@ -35,6 +35,7 @@
 Om een bestelling te kunnen plaatsen moet je ingelogd zijn. <br />
 Na het inloggen wordt je automatisch doorgestuurd naar het menuoverzicht. <br />
 Als je nog geen account hebt, dan kun je jezelf <a href="registreer.php">hier</a> registeren. <br />
+Dikke vette moeke!
 <form action="" method="post">
 	<table>
 		<tr>
