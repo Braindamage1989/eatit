@@ -13,6 +13,9 @@
 	if(isset($_POST['terug'])):
 		header('Location: inkoop.php');
 	endif;
+        
+        $query = "SELECT DISTINCT soort FROM artikel;";
+        $query_result = mysqli_query($con, $query);
 	
 	if(isset($_POST['opslaan'])) :
             if(!empty($_POST['omschrijving'])&&!empty($_POST['artikelprijs'])&&!empty($_POST['soort'])) { 
@@ -39,7 +42,14 @@
 		</tr>
 		<tr>
 			<td>Soort</td>
-			<td><input type="text" name="soort" /></td>
+                        <td><select name="soort">
+                            <?php   
+                                while ($query_row = mysqli_fetch_assoc($query_result)) :
+                                echo "<option value=\"". $query_row['soort'] ."\">". $query_row['soort'] ."</option>"; 
+                                endwhile;
+                            ?>
+                            </select>
+                        </td>
 			<td></td>
 		</tr>
 		<tr>
