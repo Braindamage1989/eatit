@@ -15,6 +15,10 @@
 	}
 	
 	$melding = null;
+        
+        if(empty($_POST['receptnr'])) {
+            redirect_to("bestelpagina.php");
+        }
 	
 	foreach ($_POST as $sleutel => $waarde) :
             if ($waarde == null):
@@ -48,7 +52,6 @@
 	endforeach;
 	
 	$_SESSION['bestelling'] = $recept;
-	
 	$result = mysqli_query($con, $query)
 		or die("Error: ".mysqli_error($con));
 			
@@ -88,10 +91,13 @@
 	<br />
 	
 	Klopt uw bestelling?
+        <br/>
 	<form action="bestelpagina_bevestig.php" method="post">
 		<input type="submit" name="bevestigen" value="Ja" />
+        </form> <br/>
+        <form action="bestelpagina.php" method="post">
 		<input type="submit" name="bevestigen" value="Nee" />
-	</form>
+        </form>
 <?php
 	require("../includes/layouts/inc_footer.php");
 ?>

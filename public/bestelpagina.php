@@ -12,7 +12,7 @@
 		redirect_to("index.php");
 	}
 
-	$query_overzicht = "SELECT * FROM recept WHERE weeknr=$weeknr";
+	$query_overzicht = "SELECT * FROM recept WHERE weeknr=$weeknr OR weeknr='';";
 	$result_overzicht = mysqli_query($con, $query_overzicht);
 ?>
 <h1>Bestelpagina</h1>
