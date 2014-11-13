@@ -35,7 +35,7 @@ error_reporting(E_ALL);
             }else {echo "U dient alle tekstvelden in te voeren.";}
 	endif;
 ?>
-<h2>Recept toevoegen</h2>
+<h1>Recept toevoegen</h1>
 <form action="" method="post">
 	<table>
 		<tr>

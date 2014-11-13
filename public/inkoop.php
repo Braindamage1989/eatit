@@ -9,13 +9,13 @@
 		redirect_to("medewerkers/index.php");
 	}
 ?>
-	<h2>Inkoop</h2>
-	<a href="inkoop_artikel_toevoegen.php">Artikel toevoegen</a><br />
-	<a href="inkoop_recept_toevoegen.php">Recept toevoegen</a><br />
-	<a href="inkoop_recept_artikel.php">Toevoegen van artikel aan recept</a><br />
-	<a href="inkoop_artikel_voorraad_selecteer.php">Voorraden van artikel bijwerken</a><br />
-	<a href="inkoop_bestellen_leverancier.php">Bestellen bij leverancier</a><br/>
-	<a href="inkoop_betalingen.php">Controleer betalingen</a><br/>
+        <h1>Inkoop</h1>
+        <a href="inkoop_artikel_toevoegen.php">Artikel toevoegen</a><br />
+        <a href="inkoop_recept_toevoegen.php">Recept toevoegen</a><br />
+        <a href="inkoop_recept_artikel.php">Toevoegen van artikel aan recept</a><br />
+        <a href="inkoop_artikel_voorraad_selecteer.php">Voorraden van artikel bijwerken</a><br />
+        <a href="inkoop_bestellen_leverancier.php">Bestellen bij leverancier</a><br/>
+        <a href="inkoop_betalingen.php">Controleer betalingen</a><br/>
         <a href="inkoop_leverancier_raadplegen.php">Leveranciers raadplegen</a><br/>
 <?php
 	require("../includes/layouts/inc_footer.php");

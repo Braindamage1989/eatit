@@ -15,7 +15,7 @@
 	$lev_result = mysqli_query($con, $lev_query)
 		or die("Fout bij select_leveranciers: ".mysqli_error($con));
 ?>	
-	<h2>Leveranciers</h2>
+	<h1>Leveranciers</h1>
 	<form action = "inkoop_leverancier_wijzigen.php" method = "post">
 	<table>
 		<tr>

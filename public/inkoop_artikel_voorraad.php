@@ -26,7 +26,7 @@
 		echo "<b>Toevoegen aan database gelukt!</b>";
 	endif;
 ?>
-<h2>Voorraden van artikel bijwerken</h2>
+<h1>Voorraden van artikel bijwerken</h1>
 <form action="" method="post">
 	<table>
 		<?php

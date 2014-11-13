@@ -10,6 +10,7 @@
 	$result = mysqli_query($con, $query)
 			or die("Error: ".mysqli_error($con));			
 ?>
+<h1>Bestellen bij leverancier</h1>
 Selecteer soort leverancier: <br />
 <form action="inkoop_leverancier_artikelen.php" method="post">
 	<select name="soort">
@@ -20,6 +21,9 @@ Selecteer soort leverancier: <br />
 		?>
 	</select>
 	<input type="submit" name="ophalen" value="Gegevens ophalen" />
+</form>
+<form action = "inkoop.php" method = "post">
+	<input type = "submit" name = "inkoop" value = "Terug naar Inkoop">
 </form>
 <?php
 	require("../includes/layouts/inc_footer.php");

@@ -28,6 +28,7 @@
             }else {echo "U dient alle tekstvelden in te vullen.";}
 	endif;
 ?>
+<h1>Artikel toevoegen</h1>
 <form action="" method="post">
 	<table>
 		<tr>

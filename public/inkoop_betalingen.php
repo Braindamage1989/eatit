@@ -28,13 +28,14 @@
 		}
 	}
 ?>
-	<h2>Controleer betalingen</h2>
+	<h1>Controleer betalingen</h1>
 	<?php echo $melding; ?>
 		<form action = "" method = "post">
 			<select name = "inkooporder">
 <?php
 	while ($query_row = mysqli_fetch_assoc($query_result)) {
 ?>		<option value = "<?php echo $query_row['inkoopordernr'];?>"><?php echo $query_row['inkoopordernr'];?></option>
+        <?php } ?>
 		</select>
 		<input type = "submit" value="Controleer" name="verzend">
 		</form>
@@ -42,6 +43,5 @@
 		<input type = "submit" name = "inkoop" value = "Terug naar Inkoop">
 	</form>
 <?php
-	}
 	require("../includes/layouts/inc_footer.php");
 ?>

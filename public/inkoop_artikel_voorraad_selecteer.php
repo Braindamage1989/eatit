@@ -17,7 +17,7 @@
 		header('Location: inkoop.php');
 	endif;
 ?>
-	<h2>Voorraden van artikel bijwerken</h2>
+	<h1>Voorraden van artikel bijwerken</h1>
 	<form action="inkoop_artikel_voorraad.php" method="post">
 		<select name="artikelnr">
 			<?php
