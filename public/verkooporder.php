@@ -13,12 +13,14 @@
 		redirect_to("medewerkers/index.php");
 	}
 
-	$verkoop_query =	"SELECT * FROM `order` od
+	/*$verkoop_query =	"SELECT * FROM `order` od
 				JOIN orderregel og
 				ON od.ordernr = og.ordernr
 				JOIN recept rc
 				ON rc.receptnr = og.receptnr
-				WHERE od.status=1";
+				WHERE od.status=1";*/
+        $verkoop_query =	"SELECT DISTINCT ordernr, status, ordertijd FROM `order`
+				WHERE status=1";
 	$verkoop_result = mysqli_query($con, $verkoop_query);
 	
 	$ordernr_query = "SELECT ordernr FROM `order`;";
@@ -41,15 +43,13 @@
 	<form action = "" method = "post">
 	<table>
 		<tr>
-			<td></td><td>Ordernummer</td> <td>Receptnummer</td> <td>Omschrijving</td> <td>Status</td> <td>Ordertijd</td>
+			<td></td><td>Ordernummer</td> <td>Status</td> <td>Ordertijd</td>
 		</tr>
 		<?php
 	while($verkoop_row = mysqli_fetch_assoc($verkoop_result)) { ?>
 		 <tr>
 		 	<td> <?php echo " <input type = \"radio\" name = \"verkooporder\" value = $verkoop_row[ordernr]>"?></td>
 			<td> <?php echo "$verkoop_row[ordernr]" ?></td>
-			<td> <?php echo "$verkoop_row[receptnr]" ?></td>
-			<td> <?php echo "$verkoop_row[omschrijving]" ?></td>
 			<td> <?php echo "$verkoop_row[status]" ?></td>
 			<td> <?php echo "$verkoop_row[ordertijd]" ?></td>
 		</tr>
