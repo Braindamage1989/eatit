@@ -54,4 +54,6 @@
 	if(isset($_POST['terug'])):
 		header('Location: inkoop.php');
 	endif;
+        
+	require("../includes/layouts/inc_footer.php");
 ?>

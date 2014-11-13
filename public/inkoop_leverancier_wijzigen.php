@@ -18,7 +18,7 @@
         
 	
 	if(isset($_POST['wijzig'])) :
-		$update = "UPDATE leveranciers SET lev_nr=". $_POST['lev_nr'] .", lev_naam=". $_POST['lev_naam'] .", lev_adres=". $_POST['lev_adres'] .", lev_postcode=". $_POST['lev_postcode'] .", lev_plaats=". $_POST['lev_plaats'] .", lev_telefoonnr=". $_POST['lev_telefoonnr'] .", lev_rekeningnr=". $_POST['lev_rekeningnr'] .", lev_soort=". $_POST['lev_soort'] ." ";
+		$update = "UPDATE leveranciers SET lev_nr='". $_POST['lev_nr'] ."', lev_naam='". $_POST['lev_naam'] ."', lev_adres='". $_POST['lev_adres'] ."', lev_postcode='". $_POST['lev_postcode'] ."', lev_plaats='". $_POST['lev_plaats'] ."', lev_telefoonnr='". $_POST['lev_telefoonnr'] ."', lev_rekeningnr='". $_POST['lev_rekeningnr'] ."', lev_soort='". $_POST['lev_soort'] ."' ";
 		$update .= "WHERE lev_nr=". $_POST['lev_nr'] ."";
 		mysqli_query($con, $update)
 			or die("Fout bij insert_into: ".mysqli_error($con));
@@ -28,7 +28,7 @@
 ?>
 
 
-h2>Wijziging van leverancier <?php echo $query_row['lev_nr']; ?></h2>
+Wijziging van leverancier <?php echo $query_row['lev_nr']; ?></h2>
 <form action = "" method = "post">
 	<table>
 		<tr>
