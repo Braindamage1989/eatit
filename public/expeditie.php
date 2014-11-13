@@ -18,17 +18,21 @@
 	$query_result = mysqli_query($con, $query);
         
 	if(mysqli_num_rows($query_result) == 0) {
-		die("U heeft op dit moment geen routelijst.");
-	}
+		echo "U heeft op dit moment geen routelijst.";
+	} else {
 ?>
 	<h1>Route selecteren</h1>
-            <form action="expeditie_routelijst.php" method="post">
-                    <select name="routenr">
-                            <?php
-                                    while ($rij = mysqli_fetch_assoc($query_result)) :
-                                            echo "<option value='". $rij['routenr'] ."'>". $rij['routenr'] ." - ". $rij['maximale_uitrijtijd'] ."</option> \n";
-                                    endwhile
-                            ?>
-                    </select>
-            <input type="submit" name="ophalen" value="Route selecteren" />
-	</form>
+                <form action="expeditie_routelijst.php" method="post">
+                        <select name="routenr">
+                                <?php
+                                        while ($rij = mysqli_fetch_assoc($query_result)) :
+                                                echo "<option value='". $rij['routenr'] ."'>". $rij['routenr'] ." - ". $rij['maximale_uitrijtijd'] ."</option> \n";
+                                        endwhile
+                                ?>
+                        </select>
+                    <input type="submit" name="ophalen" value="Route selecteren" />
+                </form>
+<?php
+        }
+	require("../includes/layouts/inc_footer.php");
+?>

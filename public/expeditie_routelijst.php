@@ -17,16 +17,23 @@
                 . "     AND r.routenr={$routenr}";
         $query_result = mysqli_query($con, $query);
 ?>
+<h1>Bezorgroute</h1>
         <table cellspacing = "10">
 <?php
         foreach ($query_result AS $array) :
-            echo "<tr>";
+            //echo "<tr>";
             foreach ($array AS $sleutel => $waarde) :
-                echo "<td>$sleutel</td><td> = </td><td>$waarde</td>";
+                echo "<tr><td>$sleutel</td><td> = </td><td>$waarde</td></tr>";
             endforeach;
             echo "<td></td>";
-            echo "</tr>";
-            echo "<br />";
+            echo "<tr></tr><tr></tr>";
+            //echo "<br />";
         endforeach;
 ?>
 	</table>
+<form action="expeditie.php" method="post">
+    <input type="submit" name="expeditie" value="Ga terug">
+</form>
+<?php
+	require("../includes/layouts/inc_footer.php");
+?>
