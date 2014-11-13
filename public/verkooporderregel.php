@@ -25,7 +25,7 @@
 	<h1>Verkooporderregels</h1>
 	<table>
 		<tr>
-			<td></td><td>Verkooporderregelnummer</td> <td>Verkoopordernummer</td> <td>Receptnummer</td> <td>Omschrijving</td> <td>Aantal</td>
+			<td>Verkooporderregelnummer</td> <td>Verkoopordernummer</td> <td>Receptnummer</td> <td>Omschrijving</td> <td>Aantal</td>
 		</tr>
 		<?php
 	while($regel_row = mysqli_fetch_assoc($regel_result)) { ?>
