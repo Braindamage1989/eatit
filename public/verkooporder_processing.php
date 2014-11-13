@@ -10,22 +10,16 @@ if($_SESSION['functie'] != 'Medewerker verkoop' && $_SESSION['functie'] != 'Mede
     redirect_to("medewerkers/index.php");
 }
 
-if(!isset($_POST['wijzig_status'])) {
-    redirect_to("verkooporder.php");
-}
-
 $status = $_POST['status'];
 $ordernr = $_POST['ordernr'];
 $query = "UPDATE `order` SET status = {$status} WHERE ordernr = {$ordernr};";
 $query_result = mysqli_query($con, $query);
 
 if($query_result) {
-    $_SESSION['message'] = "Status gewijzigd.";
-    redirect_to("verkooporder.php");
+    echo "Status gewijzigd.";
 } 
 else {
-$_SESSION['message'] = "Er is iets fout gegaan met het wijzigen van de status.";
-redirect_to("verkooporder.php");
+    echo "Er is iets fout gegaan met het wijzigen van de status.";
 }
 
 ?>
