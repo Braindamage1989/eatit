@@ -18,8 +18,9 @@ if( $_SESSION['functie'] != 'Hoofd administratie'&&
 $aantal_array = array();
 
 $status = $_POST['status'];
+$betaald = $_POST['betaald'];
 $ordernr = $_POST['ordernr'];
-$query = "UPDATE `order` SET status = {$status} WHERE ordernr = {$ordernr};";
+$query = "UPDATE `order` SET status = {$status}, betaald = {$betaald} WHERE ordernr = {$ordernr};";
 $query_result = mysqli_query($con, $query);
 
 if ($_POST['status'] == 5) :
