@@ -21,7 +21,7 @@
 
 
 <h1>Wijziging van verkooporder <?php echo $query_row['ordernr']; ?></h1>
-<form action = "keuken_verkooporder_processing.php" method = "post">
+<form action = "verkooporder_processing.php" method = "post">
 	<table>
 		<tr>
 			<td>Verkoopordernummer: </td><td><input type = "text" readonly = "readonly" name = "ordernr" value = "<?php echo $query_row['ordernr']; ?>" /></td>
