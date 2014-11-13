@@ -221,7 +221,7 @@ INSERT INTO `leveranciers` (`lev_nr`, `lev_naam`, `lev_adres`, `lev_postcode`, `
 (2, 'Zainab', 'Keulsche Vaart 15D', '3621 MX', 'Breukelen', 346262933, 0, 'Aardappels, groenten en fruit'),
 (3, 'Agrico', 'Puttensteinsveldweg 22', '8091 BS', 'Wezep', 436974521, 0, 'Buitenlands ingredienten'),
 (4, 'Hanos', 'Hoofdweg 964B', '6498 HD', 'Groningen', 501364897, 0, 'Vis'),
-(5, 'Gall en Gall', 'Hoofdweg 45', '9711 RB', 'Groningen', 501364563, 0, 'Drank');
+(5, 'Gall en Gall', 'Hoofdweg 45', '9711 RB', 'Groningen', 501364563, 0, 'Side order');
 
 -- --------------------------------------------------------
 
