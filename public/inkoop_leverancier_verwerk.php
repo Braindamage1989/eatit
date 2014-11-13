@@ -37,7 +37,7 @@
 		mysqli_query($con, $query)
                     or die("Error: ".mysqli_error($con));
                 
-		$melding .= "<span class=\"melding\">Het artikel met artikelnummer $sleutel is besteld</span><br />";
+		$melding .= "<span class=\"groenmelding\">Het artikel met artikelnummer $sleutel is besteld</span><br />";
 	endforeach;
 
 	if(isset($melding)):
