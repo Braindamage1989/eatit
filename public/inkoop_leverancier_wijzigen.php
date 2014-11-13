@@ -55,7 +55,7 @@ h2>Wijziging van leverancier <?php echo $query_row['lev_nr']; ?></h2>
                 <tr>
 			<td>Soort: </td><td><input type = "text" name = "lev_soort" value = "<?php echo $query_row['lev_soort']; ?>"</td>
 		<tr>    
-			<td><input type = "submit" name = "wijzig_status" value = "Wijzig"</td>
+			<td><input type = "submit" name = "wijzig" value = "Wijzig"</td>
 		</tr>
 	</table>
 </form>
