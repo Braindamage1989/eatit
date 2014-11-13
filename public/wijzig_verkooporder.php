@@ -12,6 +12,7 @@
 	if(!isset($_POST['wijzig_status'])) {
 		redirect_to("verkooporder.php");
 	}
+        
 	$verkoopordernr = $_POST['ordernr'];
 
 	$query = "SELECT * FROM `order`  WHERE ordernr = {$verkoopordernr};";
