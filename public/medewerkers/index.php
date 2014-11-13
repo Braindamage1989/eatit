@@ -52,7 +52,7 @@
 		
 			switch($_SESSION['functie']) {
 				case 'Chef de Cuisine':
-					redirect_to("../keuken.php");
+					redirect_to("../directie.php");
 				break;
 				
 				case 'Medewerker keuken':
