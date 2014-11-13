@@ -1,4 +1,6 @@
 <?php
+ini_set('display_errors', 1); 
+error_reporting(E_ALL);
 	require("../includes/layouts/inc_header.php");
 	require("../includes/layouts/inc_nav.php");
 	
@@ -22,7 +24,11 @@
 	$ordernr_query = "SELECT ordernr FROM `order`;";
 	$ordernr_result = mysqli_query($con, $ordernr_query);
 ?>	
-	<h2>Verkooporders</h2>
+	<h1>Verkooporders</h1>
+        <?php if(isset($_SESSION['message'])){
+        echo $_SESSION['message'];
+        $_SESSION["message"] = null;
+        } ?>
 	<table>
 		<tr>
 			<td>Ordernummer</td> <td>Receptnummer</td> <td>Omschrijving</td> <td>Status</td> <td>Ordertijd</td>
@@ -31,8 +37,6 @@
 	while($verkoop_row = mysqli_fetch_assoc($verkoop_result)) { ?>
 		 <tr>
 			<td> <?php echo "$verkoop_row[ordernr]" ?></td>
-			<td> <?php echo "$verkoop_row[receptnr]" ?></td>
-			<td> <?php echo "$verkoop_row[omschrijving]" ?></td>
 			<td> <?php echo "$verkoop_row[status]" ?></td>
 			<td> <?php echo "$verkoop_row[ordertijd]" ?></td>
 			</tr>

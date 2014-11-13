@@ -24,7 +24,7 @@
 ?>
 
 
-<h2>Wijziging van verkooporder <?php echo $query_row['ordernr']; ?></h2>
+<h1>Wijziging van verkooporder <?php echo $query_row['ordernr']; ?></h1>
 <form action = "administratie_verkooporder_processing.php" method = "post">
 	<table>
 		<tr>
@@ -36,13 +36,18 @@
 		<tr>
 			<td>Status: </td><td>
 				<select name = "status"> 
-				<option value = "1">Besteld</option>
-				<option value = "3">Bereiden</option>
-				<option value = "5" SELECTED>Klaar</option>
+				<option value = "1"<?php if ($query_row['status'] == 1): echo "selected=\"selected\""; endif; ?>>Besteld</option>
+				<option value = "3"<?php if ($query_row['status'] == 3): echo "selected=\"selected\""; endif; ?>>Bereiden</option>
+				<option value = "5"<?php if ($query_row['status'] == 5): echo "selected=\"selected\""; endif; ?>>Klaar</option>
 			</td>
 		</tr>
 		<tr>
-			<td>Betaald: </td><td><input type = "text" readonly = "readonly" name = "betaald" value = "<?php echo $query_row['betaald']; ?>"</td>
+			<td>Betaald: </td><td>
+				<select name = "betaald"> 
+				<option value = "1"<?php if ($query_row['betaald'] == 1): echo "selected=\"selected\""; endif; ?>>Ok</option>
+				<option value = "5"<?php if ($query_row['betaald'] == 5): echo "selected=\"selected\""; endif; ?>>Niet betaald</option>
+				<option value = "9"<?php if ($query_row['betaald'] == 9): echo "selected=\"selected\""; endif; ?>>Betaald</option>
+			</td>
 		</tr>
 		<tr>
 			<td>Ordertijd: </td><td><input type = "text" readonly = "readonly" name = "ordertijd" value = "<?php echo $query_row['ordertijd']; ?>"</td>

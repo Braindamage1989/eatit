@@ -49,7 +49,7 @@
 		echo $melding;
 	endif;
 ?>
-	<h2>Inkooporderregels</h2>
+	<h1>Inkooporderregels</h1>
 <form action="" method="post">
 	<?php		
 		while ($rij = mysqli_fetch_assoc($result)) :
@@ -113,5 +113,5 @@
 	<br />
 	<b>Alleen velden met een * kunnen bewerkt worden</b>
 <?php
-	require("../includes/inc_footer.php");
+	require("../includes/layouts/inc_footer.php");
 ?>

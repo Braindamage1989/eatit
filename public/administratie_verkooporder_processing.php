@@ -14,15 +14,16 @@
 	}
 	
 	$status = $_POST['status'];
+        $betaald = $_POST['betaald'];
 	$ordernr = $_POST['ordernr'];
-	$query = "UPDATE `order` SET status = {$status} WHERE ordernr = {$ordernr};";
+        $query = "UPDATE `order` SET status = {$status}, betaald = {$betaald} WHERE ordernr = {$ordernr};";
 	$query_result = mysqli_query($con, $query);
 	
 	if($query_result) {
-		$_SESSION['message'] = "Status gewijzigd.";
+		$_SESSION['message'] = "<span class=\"groenmelding\">Status gewijzigd. <br/></span>";
 		redirect_to("administratie_verkooporder.php");
 	} else {
-		$_SESSION['message'] = "Er is iets fout gegaan met het wijzigen van de status.";
+		$_SESSION['message'] = "<span class=\"melding\">Er is iets fout gegaan met het wijzigen van de status. <br/></span>";
 		redirect_to("administratie_verkooporder.php");
 	}
 ?>

@@ -50,7 +50,7 @@
 					WHERE inkoopordernr='". $_POST['inkoopordernr'] ."'";
 		$result = mysqli_query($con, $query)
 			or die("Error: ".mysqli_error($con));
-		$melding = "<b>Record met het inkoopordernummer ". $_POST['inkoopordernr'] ." is bijgewerkt.</b>";
+		$melding = "<span class=\"groenmelding\">Record met het inkoopordernummer ". $_POST['inkoopordernr'] ." is bijgewerkt.</span>";
 	endif;
 	
 	$query_prijs = "SELECT a.omschrijving, a.artikelprijs, i.aantal, i.inkooporderregelnr, i.inkoopordernr ";
@@ -66,7 +66,7 @@
 		echo $melding;
 	endif;
 ?>
-	<h2>Inkooporders</h2>
+	<h1>Inkooporders</h1>
 	<form action="" method="post">
 		<?php
 			while ($rij = mysqli_fetch_assoc($ophalen_result)) :
@@ -91,7 +91,7 @@
 				<td>Status</td>
 				<td>
 					<select name="status" readonly="readonly">
-					<?
+					<?php
 						foreach ($status as $sleutel => $waarde) :
 							if ($rij['status'] == $sleutel):
 								echo "<option value='". $sleutel ."' selected=\"selected\">". $waarde ."</option> \n";
@@ -107,7 +107,7 @@
 				<td>Betaald *</td>
 				<td>
 					<select name="betaald">
-					<?
+					<?php
 						foreach ($betaald as $sleutel => $waarde) :
 							if ($rij['betaald'] == $sleutel):
 								echo "<option value='". $sleutel ."' selected=\"selected\">". $waarde ."</option> \n";
@@ -135,12 +135,12 @@
 	
 	<br />
 	<b>Alleen velden met een * kunnen bewerkt worden</b>
-	<br /></br />
+	<br /><br />
 	
 	<form action="administratie_inkooporderregel.php" method="post">
 		Inkooporderregel inzien:
 			<select name="inkooporderregelnr">
-				<?
+				<?php
 					while ($rij = mysqli_fetch_assoc($ophalen_ior_result)) :
 							echo "<option value='". $rij['inkooporderregelnr'] ."'>". $rij['inkooporderregelnr'] ."</option> \n";
 					endwhile;
@@ -149,5 +149,5 @@
 			<input type="submit" name="inzien" value="Inzien" />
 	</form>
 <?php
-	require("../includes/inc_footer.php");
+	require("../includes/layouts/inc_footer.php");
 ?>

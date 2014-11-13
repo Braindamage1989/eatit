@@ -14,7 +14,7 @@
 	$result = mysqli_query($con, $query)
 			or die("Error: ".mysqli_error($con));			
 ?>
-<h2>Administratie</h2>
+<h1>Administratie</h1>
 Wijzig inkooporders <br/>
 Selecteer een inkoopordernummer: <br />
 <form action="administratie_inkooporder.php" method="post">
