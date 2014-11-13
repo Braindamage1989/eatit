@@ -5,14 +5,14 @@
 	require("../includes/inc_connect.php");
         require("../includes/inc_functions.php");
 	
+        session_start();
+        
 	$melding = null;
+        
         if(!isset($_POST['verzend'])) {
             redirect_to("inkoop.php");
         }
-        if(!isset($_POST['artikelnr'])) {
-            $melding = "U heeft geen artikelnummer geselecteerd.";
-        }
-
+        
 	foreach ($_POST['artikelnr'] as $sleutel => $waarde) :
 	if (empty($_POST['artikelnr'][$sleutel])) :
 		unset ($_POST['artikelnr'][$sleutel]);
@@ -37,7 +37,7 @@
 		mysqli_query($con, $query)
                     or die("Error: ".mysqli_error($con));
                 
-		$melding .= "<span class=\"groenmelding\">Het artikel met artikelnummer $sleutel is besteld</span><br />";
+		$melding .= "<span class=\"groenmelding\">Het artikel met artikel met de omschrijving ". $_SESSION['omschrijving'][$sleutel] ." is besteld</span><br />";
 	endforeach;
 
 	if(isset($melding)):

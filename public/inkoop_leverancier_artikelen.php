@@ -22,12 +22,13 @@
                     $lev_nr = $row_overzicht['lev_nr'];
 	?> 
 		<tr>
-			<td> <?php echo " <input type = \"checkbox\" name = \"artikelnr[$row_overzicht[artikelnr]]\" value = $row_overzicht[artikelnr]>"?></td>
+			<?php echo " <input type = \"hidden\" name = \"artikelnr[$row_overzicht[artikelnr]]\" value = $row_overzicht[artikelnr]>"?>
 			<td> <?php echo "$row_overzicht[omschrijving]" ?></td>
 			<td><?php echo "$row_overzicht[artikelprijs] euro";?> </td>
 			<td>Aantal: </td><td> <?php echo "<input type = \"number\" min=\"0\" value=\"0\" name = \"artikelnr[". $row_overzicht['artikelnr'] ."]\">"?></td>
-			</tr>
+		</tr>
 	<?php 
+                $_SESSION['omschrijving'][$row_overzicht['artikelnr']] = $row_overzicht['omschrijving'];
 		}
                 
 	?>
