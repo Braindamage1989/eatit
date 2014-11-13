@@ -17,24 +17,26 @@ $ordernr = $_POST['ordernr'];
 $query = "UPDATE `order` SET status = {$status} WHERE ordernr = {$ordernr};";
 $query_result = mysqli_query($con, $query);
 
-$select_orderregel = "SELECT receptnr, aantal FROM orderregel WHERE ordernr=". $ordernr ."";
-$orderregel_result = mysqli_query($con, $select_orderregel);
+if ($_POST['status'] == 5) :
+    $select_orderregel = "SELECT receptnr, aantal FROM orderregel WHERE ordernr=". $ordernr ."";
+    $orderregel_result = mysqli_query($con, $select_orderregel);
 
-while ($rijen = mysqli_fetch_assoc($orderregel_result)) :
-    $aantal_array[$rijen['receptnr']] = $rijen['aantal'];
-endwhile;
-
-foreach ($aantal_array as $receptnr => $aantal) :
-    $select_artikelrecept = "SELECT * FROM artikelrecept WHERE receptnr=". $receptnr ."";
-    $artikelrecept_result = mysqli_query($con, $select_artikelrecept);
-    
-    while ($rijen = mysqli_fetch_assoc($artikelrecept_result)) :
-        $gereserveerd = $aantal * $rijen['aantal'];
-        $update_aantal = "UPDATE artikel SET gr=gr - ". $gereserveerd ." WHERE artikelnr=". $rijen['artikelnr'] ."";
-        mysqli_query($con, $update_aantal);
+    while ($rijen = mysqli_fetch_assoc($orderregel_result)) :
+        $aantal_array[$rijen['receptnr']] = $rijen['aantal'];
     endwhile;
-    
-endforeach;
+
+    foreach ($aantal_array as $receptnr => $aantal) :
+        $select_artikelrecept = "SELECT * FROM artikelrecept WHERE receptnr=". $receptnr ."";
+        $artikelrecept_result = mysqli_query($con, $select_artikelrecept);
+
+        while ($rijen = mysqli_fetch_assoc($artikelrecept_result)) :
+            $gereserveerd = $aantal * $rijen['aantal'];
+            $update_aantal = "UPDATE artikel SET gr=gr - ". $gereserveerd ." WHERE artikelnr=". $rijen['artikelnr'] ."";
+            mysqli_query($con, $update_aantal);
+        endwhile;
+
+    endforeach;
+endif;
 
 if($query_result) {
     echo "<span class=\"groenmelding\"> Status gewijzigd. </span>";
