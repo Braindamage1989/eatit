@@ -33,10 +33,8 @@
 	endif;
 	
 	if(isset($melding)) :
-		echo $melding;
-	endif;
-        
-        if(isset($_SESSION['melding'])) :
+            echo $melding;
+        elseif(isset($_SESSION['melding'])) :
             echo $_SESSION['melding'];
 	endif;
   
