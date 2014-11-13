@@ -11,7 +11,7 @@
 		redirect_to("medewerkers/index.php");
 	}
 ?>
-        <h1>Inkoop</h1>
+        <h1>Directie</h1>
         <a href="inkoop.php">Afdeling Inkoop</a><br />
         <a href="verkoop.php">Afdeling Verkoop</a><br />
         <a href="expeditie.php">Afdeling Expeditie</a><br />
