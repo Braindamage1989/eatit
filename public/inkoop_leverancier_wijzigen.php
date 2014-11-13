@@ -65,7 +65,7 @@ Wijziging van leverancier <?php echo $query_row['lev_nr']; ?></h2>
 	<br/>
 	<br/>
         <form action = "inkoop_leverancier_raadplegen.php" method = "post">
-		<input type = "submit" name = "terug" value = "Terug naar leveranciers pagina">
+		<input type = "submit" name = "inkoop_leverancier_raadplegen.php" value = "Terug naar leveranciers pagina">
 	</form>
 
 <?php
