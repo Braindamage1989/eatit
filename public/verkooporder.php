@@ -18,7 +18,7 @@
 				ON od.ordernr = og.ordernr
 				JOIN recept rc
 				ON rc.receptnr = og.receptnr
-				;";
+				WHERE od.status=1";
 	$verkoop_result = mysqli_query($con, $verkoop_query);
 	
 	$ordernr_query = "SELECT ordernr FROM `order`;";
