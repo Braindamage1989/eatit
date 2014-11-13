@@ -18,8 +18,15 @@
         $klantnr = $_SESSION['klantnr'];
         $query_klantgegevens = "SELECT * FROM klant WHERE klantnr = {$klantnr};";
         $result_klantgegevens = mysqli_query($con, $query_klantgegevens);
+        
 ?>
 <h1>Bestelpagina</h1>
+<?php
+if (isset($_SESSION['melding'])):
+            echo $_SESSION['melding'];
+            $_SESSION['melding'] = null;
+endif;
+?>
 <form action = "bestelpagina_processing.php" method = "post">
 	Vink voor de gewenste maaltijd a.u.b. eerst de checkbox aan <br/>
 	<table border="1px">
@@ -27,10 +34,10 @@
 		while($row_overzicht = mysqli_fetch_array($result_overzicht)){
 	?> 
 		<tr>
-			<td> <?php echo " <input type = \"checkbox\" name = \"receptnr[]\" value = $row_overzicht[receptnr]>"?></td>
+			<td> <?php echo " <input type = \"checkbox\" name = \"receptnr[$row_overzicht[receptnr]]\" />"?></td>
 			<td> <?php echo "$row_overzicht[omschrijving]" ?></td>
 			<td><?php echo "$row_overzicht[verkoopprijs] euro";?> </td>
-			<td>Aantal: </td><td> <?php echo "<input type = \"number\" maxlength=\"2\" min=\"1\" max=\"25\" onKeyPress=\"return numbersonly(this, event)\" name = $row_overzicht[receptnr]_aantal>"?></td>
+			<td>Aantal: </td><td> <?php echo "<input type = \"number\" maxlength=\"2\" min=\"1\" max=\"25\" onKeyPress=\"return numbersonly(this, event)\" name = receptnr[$row_overzicht[receptnr]]>"?></td>
 			</tr>
 	<?php 
 		}
