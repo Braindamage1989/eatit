@@ -38,25 +38,24 @@
 		<tr>
 			<td>Status: </td>
                         <td>
-                            <select name = "status" <?php if($_SESSION['functie'] == 'Hoofd administratie'||
-                                                            $_SESSION['functie'] == 'Financiele administratie'||
-                                                            $_SESSION['functie'] == 'Personeelsadministratie') {echo "DISABLED>";}?>
+                            <select name = "status" />
 				<option value = "1" <?php if ($query_row['status'] == 1): echo "selected=\"selected\""; endif; ?>>Besteld</option>
 				<option value = "3" <?php if ($query_row['status'] == 3): echo "selected=\"selected\""; endif; ?>>Bereiden</option>
 				<option value = "5" <?php if ($query_row['status'] == 5): echo "selected=\"selected\""; endif; ?>>Klaar</option>
                             </select>
 			</td>
+                        <td><span class="melding">Deze optie gebruik je als je van de keuken bent</span></td>
 		</tr>
 		<tr>
-			<td>Betaald: </td><td>
-                            <select name = "betaald" <?php if($_SESSION['functie'] !== 'Hoofd administratie'||
-                                                            $_SESSION['functie'] !== 'Financiele administratie'||
-                                                            $_SESSION['functie'] !== 'Personeelsadministratie') {echo "DISABLED>";}?>
+			<td>Betaald: </td>
+                        <td>
+                            <select name = "betaald" />
 				<option value = "1" <?php if ($query_row['betaald'] == 1): echo "selected=\"selected\""; endif; ?>>Ok</option>
 				<option value = "5" <?php if ($query_row['betaald'] == 5): echo "selected=\"selected\""; endif; ?>>Niet betaald</option>
 				<option value = "9" <?php if ($query_row['betaald'] == 9): echo "selected=\"selected\""; endif; ?>>Betaald</option>
                             </select>
 			</td>
+                        <td><span class="melding">Deze optie gebruik je als je van de administratie bent</span></td>
 		</tr>
 		<tr>
 			<td>Ordertijd: </td><td><input type = "text" readonly = "readonly" name = "ordertijd" value = "<?php echo $query_row['ordertijd']; ?>" /></td>
