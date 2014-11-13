@@ -29,7 +29,7 @@
 
 
 h2>Wijziging van leverancier <?php echo $query_row['lev_nr']; ?></h2>
-<form action = "inkoop_leverancier_raadplegen.php" method = "post">
+<form action = "" method = "post">
 	<table>
 		<tr>
 			<td>lev_nr: </td><td><input type = "text" name = "lev_nr" value = "<?php echo $query_row['lev_nr']; ?>"</td>
