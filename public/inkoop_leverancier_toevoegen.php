@@ -29,6 +29,7 @@
             }else {echo "U dient alle tekstvelden in te vullen.";}
 	endif;
 ?>
+<h1>Toevoegen van leverancier</h1>
 <form action="" method="post">
 	<table>
 		<tr>

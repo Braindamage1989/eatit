@@ -48,7 +48,7 @@
         <br/>
         <br/>
         <form action = "inkoop.php" method = "post">
-		<input type = "submit" name = "Inkoop" value = "terug">
+		<input type = "submit" name = "Inkoop" value = "Ga terug">
 	</form>
 <?php
 	if(isset($_POST['terug'])):
