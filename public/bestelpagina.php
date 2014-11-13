@@ -34,7 +34,7 @@ endif;
 		while($row_overzicht = mysqli_fetch_array($result_overzicht)){
 	?> 
 		<tr>
-			<td> <?php echo " <input type = \"checkbox\" name = \"receptnr[$row_overzicht[receptnr]]\" />"?></td>
+                        <?php echo " <input type = \"hidden\" name = \"receptnr[$row_overzicht[receptnr]]\" />"?>
 			<td> <?php echo "$row_overzicht[omschrijving]" ?></td>
 			<td><?php echo "$row_overzicht[verkoopprijs] euro";?> </td>
 			<td>Aantal: </td><td> <?php echo "<input type = \"number\" maxlength=\"2\" min=\"1\" max=\"25\" onKeyPress=\"return numbersonly(this, event)\" name = receptnr[$row_overzicht[receptnr]]>"?></td>

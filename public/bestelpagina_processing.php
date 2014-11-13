@@ -31,9 +31,6 @@
              if ($sleutel == 'verzend') :
                 unset($_POST[$sleutel]);
             endif;
-            if (empty ($_POST['receptnr'])):
-                unset($_POST['receptnr']);
-            endif;
         endforeach;
 	
         // bepalen waar array in post vandaan komt en waarvoor deze gebruikt word, geen nut is verwijderen of unsetten
