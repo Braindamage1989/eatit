@@ -67,7 +67,7 @@
 			<td>Artikelnummer</td>
 			<td>
 				<select name="artikelnr" readonly="readonly">
-				<?
+				<?php
 					while ($rij_ac = mysqli_fetch_assoc($result_ac)) :
 						if ($rij_ac['artikelnr'] == $rij['artikelnr']):
 							echo "<option value='". $rij_ac['artikelnr'] ."' selected=\"selected\">". $rij_ac['artikelnr'] ." ". $rij_ac['omschrijving'] ."</option> \n";
@@ -97,7 +97,7 @@
 			if(isset($terug)):
 			?>
 				</form>
-				<form action="administratie_inkooporder.php" method="post">
+				<form action="index.php" method="post">
 				<input type="hidden" name="inkoopordernr" value="<?php echo $rij['inkoopordernr']; ?>" />
 				<input type="submit" name="ophalen" value="Ga terug" />
 				</form>

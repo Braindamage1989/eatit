@@ -7,7 +7,12 @@
 	
 	session_start();
 	
-	if($_SESSION['functie'] != 'Medewerker verkoop' && $_SESSION['functie'] != 'Medewerker keuken' && $_SESSION['functie'] != 'Chef de Cuisine') {
+	if( $_SESSION['functie'] != 'Hoofd administratie'&&
+            $_SESSION['functie'] != 'Financiele administratie'&&
+            $_SESSION['functie'] != 'Personeelsadministratie'&&
+            $_SESSION['functie'] != 'Medewerker verkoop' &&
+            $_SESSION['functie'] != 'Medewerker keuken' &&
+            $_SESSION['functie'] != 'Chef de Cuisine') {
 		redirect_to("medewerkers/index.php");
 	}
         

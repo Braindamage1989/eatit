@@ -9,7 +9,12 @@
 	
 	$melding = null;
 	
-	if($_SESSION['functie'] != 'Medewerker verkoop' && $_SESSION['functie'] != 'Medewerker keuken' && $_SESSION['functie'] != 'Chef de Cuisine') {
+	if( $_SESSION['functie'] != 'Hoofd administratie'&&
+            $_SESSION['functie'] != 'Financiele administratie'&&
+            $_SESSION['functie'] != 'Personeelsadministratie'&&
+            $_SESSION['functie'] != 'Medewerker verkoop' &&
+            $_SESSION['functie'] != 'Medewerker keuken' &&
+            $_SESSION['functie'] != 'Chef de Cuisine') {
 		redirect_to("medewerkers/index.php");
 	}
 
@@ -70,18 +75,9 @@
 	<br/>
 	<br/>
 	<br/>
-	<?php
-	if($_SESSION['functie'] == 'Medewerker verkoop') {
-?>
-	<form action = "verkoop.php" method = "post">
-		<input type = "submit" name = "verkoop" value = "Terug naar Verkoop">
-	</form>
+        <form action="index.php" method="post">
+            <input type="submit" name="terug" value="Ga terug">
+        </form>
 <?php
-	}else { ?>
-	<form action = "keuken.php" method = "post">
-		<input type = "submit" name = "keuken" value = "Terug naar Keuken">
-	</form>
-<?php
-	}
 	require("../includes/layouts/inc_footer.php");
 ?>

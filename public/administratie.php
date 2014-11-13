@@ -29,7 +29,7 @@ Selecteer een inkoopordernummer: <br />
 </form>
 <br/>
 Wijzig verkooporderstatus <br/>
-<form action = "administratie_verkooporder.php" method = "post">
+<form action = "verkooporder.php" method = "post">
 	<table>
 		<tr>
 			<td> <input type = "submit" name = "verzend_order" value = "Geplaatste orders"</td>
