@@ -23,7 +23,7 @@
 				WHERE status=1";
 	$verkoop_result = mysqli_query($con, $verkoop_query);
 	
-	$ordernr_query = "SELECT ordernr FROM `order`;";
+	$ordernr_query = "SELECT ordernr FROM `order` WHERE status=1;";
 	$ordernr_result = mysqli_query($con, $ordernr_query);
 	
         if(isset($_POST['verzend_verkooporderregel'])):
