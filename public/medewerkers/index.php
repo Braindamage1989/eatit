@@ -9,8 +9,8 @@
 	  <nav role="navigation" id="access">
 	    <ul id="menu">
 			<li class="active"><a href="../medewerkers/index.php">Home</a></li><!-- whitespace
-	                --><li><a href="../public/bestelpagina.php">Bestellen</a></li><!-- whitespace
-	                --><li><a href="../public/menukaart.php">Gerechten</a></li><!-- whitespace
+	                --><li><a href="../bestelpagina.php">Bestellen</a></li><!-- whitespace
+	                --><li><a href="../menukaart.php">Gerechten</a></li><!-- whitespace
 	                --><li><a href="../uitloggen.php">Uitloggen</a></li>
 		</ul>
 		</nav>
