@@ -36,6 +36,7 @@
             echo $melding;
         elseif(isset($_SESSION['melding'])) :
             echo $_SESSION['melding'];
+            $_SESSION['melding'] = null;
 	endif;
   
 ?>
