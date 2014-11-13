@@ -10,7 +10,21 @@
 	}
 ?>
 
-<?php
+<?php   
+        if(isset($_POST['Leverancier_bewerken'])) :
+            if(!isset($_POST['lev_nr'])) :
+                echo "<span class=\"melding\">Er is geen leverancier geselecteerd.<br /></span>";
+        ?>      
+                <form action = "inkoop_leverancier_raadplegen.php" method = "post">
+                    <input type = "submit" name = "inkoop_leverancier_raadplegen.php" value = "Terug">
+                </form>
+        <?php     die;
+            endif;
+        endif;
+
+       
+        
+       
 	$query = "SELECT * FROM leveranciers WHERE lev_nr = ". $_POST['lev_nr'] ."";
 	$query_result = mysqli_query($con, $query)
 		or die("Fout bij select_leveranciers: ".mysqli_error($con));
@@ -25,10 +39,10 @@
 				
 		echo "<b>Wijziging gelukt!</b>";
 	endif;
-?>
+        
 
-
-Wijziging van leverancier <?php echo $query_row['lev_nr']; ?></h2>
+?>    
+<h1>Wijziging van leverancier</h1> <h2>
 <form action = "" method = "post">
 	<table>
 		<tr>
@@ -65,7 +79,7 @@ Wijziging van leverancier <?php echo $query_row['lev_nr']; ?></h2>
 	<br/>
 	<br/>
         <form action = "inkoop_leverancier_raadplegen.php" method = "post">
-		<input type = "submit" name = "inkoop_leverancier_raadplegen.php" value = "Terug naar leveranciers pagina">
+		<input type = "submit" name = "inkoop_leverancier_raadplegen.php" value = "Terug naar leverancier pagina">
 	</form>
 
 <?php
