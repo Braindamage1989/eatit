@@ -40,7 +40,13 @@
                             $num_aantal = mysqli_num_rows($result_aantal);
                             
                                 if ($num_aantal == 0) :
-                                    $melding .= "<span class=\"melding\">De bestelling met receptnummer $sleutel is niet voldoende op voorraad.<br /></span>";
+                                    $receptnaam = "SELECT * FROM recept WHERE receptnr=$sleutel";
+                                    $receptnaam_result = mysqli_query($con, $receptnaam_result);
+                                
+                                    while ($rij = mysqli_fetch_assoc($receptnaam)) :
+                                        $melding .= "<span class=\"melding\">De bestelling ". $rij['omschrijving'] ." is niet voldoende op voorraad.<br /></span>";
+                                    endwhile;
+                                    
                                     unset ($_SESSION['bestelling'][$sleutel]);
                                 else:
                                     $update_aantal = "UPDATE artikel SET gr=gr + ". $waarde * $rijen['aantal'] .", tv=tv - ". $waarde * $rijen['aantal'] ." WHERE artikelnr=". $rijen['artikelnr'] ."";
@@ -135,9 +141,16 @@
                         foreach ($_SESSION['bestelling'] as $sleutel => $waarde):
                                 $insert_orderregel = "INSERT INTO orderregel (ordernr, receptnr, aantal) ";
                                 $insert_orderregel .= "VALUES (". $ordernr .", ". $sleutel .", ". $waarde .")";
+                                
                                 mysqli_query($con, $insert_orderregel)
                                     or die("Fout bij insert_orderregel: ".mysqli_error($con));
-                                $melding .= "<span class=\"groenmelding\">De bestelling met receptnummer $sleutel is doorgegeven aan de keuken.<br /></span>";
+                                
+                                $receptnaam = "SELECT * FROM recept WHERE receptnr=$sleutel";
+                                $receptnaam_result = mysqli_query($con, $receptnaam);
+                                
+                                while ($rij = mysqli_fetch_assoc($receptnaam_result)) :
+                                    $melding .= "<span class=\"groenmelding\">De bestelling ". $rij['omschrijving'] ." is doorgegeven aan de keuken.<br /></span>";
+                                endwhile;
                         endforeach;
                     endif;
                     
