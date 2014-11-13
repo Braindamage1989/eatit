@@ -23,7 +23,7 @@
         }
 	while($query_row = mysqli_fetch_assoc($query_result)) {
 ?>
-	<tr><td>Artikelnr <?php echo $query_row['artikelnr'] . " heeft een voorraad van " . $query_row['tv']. " en moet worden bijbesteld." ?></td></tr>
+	<tr><td>Artikelnr <?php echo $query_row['omschrijving'] . " heeft een voorraad van " . $query_row['tv']. " en moet worden bijbesteld." ?></td></tr>
 <?php
 	}
 ?>
