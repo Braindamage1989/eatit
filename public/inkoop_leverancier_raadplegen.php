@@ -5,7 +5,7 @@
 	require("../includes/inc_connect.php");
 	require("../includes/inc_functions.php");
 	session_start();
-	if($_SESSION['functie'] != 'Medewerker inkoop'&&$_SESSION['functie'] != 'Hoofd commerciële afdeling'&&$_SESSION['functie'] != 'Chef de Cuisine') {
+	if($_SESSION['functie'] != 'Medewerker inkoop'&&$_SESSION['functie'] != 'Hoofd commerciele afdeling'&&$_SESSION['functie'] != 'Chef de Cuisine') {
 		redirect_to("medewerkers/index.php");
 	}
 ?>

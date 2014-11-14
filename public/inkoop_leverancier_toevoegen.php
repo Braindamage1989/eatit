@@ -25,8 +25,8 @@
 		mysqli_query($con, $insert_into)
 				or die("Fout bij insert_into: ".mysqli_error($con));
 				
-		echo "<b>Toevoegen aan database gelukt!</b>";
-            }else {echo "U dient alle tekstvelden in te vullen.";}
+		echo "<span class=\"groenmelding\">Toevoegen aan database gelukt!</span>";
+            }else {echo "<span class=\"melding\">U dient alle tekstvelden in te vullen.</span>";}
 	endif;
 ?>
 <h1>Toevoegen van leverancier</h1>

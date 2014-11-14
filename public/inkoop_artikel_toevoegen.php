@@ -20,12 +20,13 @@
 	if(isset($_POST['opslaan'])) :
             if(!empty($_POST['omschrijving'])&&!empty($_POST['artikelprijs'])&&!empty($_POST['soort'])) { 
 		$insert_into = "INSERT INTO artikel (omschrijving, artikelprijs, soort, tv, ib)";
+                
 		$insert_into .= "VALUES ('". $_POST['omschrijving'] ."', ". $_POST['artikelprijs'] .", '". $_POST['soort'] ."', ". $_POST['tv'] .", ". $_POST['ib'] .")";
 		mysqli_query($con, $insert_into)
 				or die("Fout bij insert_into: ".mysqli_error($con));
 				
-		echo "<b>Toevoegen aan database gelukt!</b>";
-            }else {echo "U dient alle tekstvelden in te vullen.";}
+		echo "<span class=\"groenmelding\">Toevoegen aan database gelukt!</span>";
+            }else {echo "<span class=\"melding\">U dient alle tekstvelden in te vullen.</span>";}
 	endif;
 ?>
 <h1>Artikel toevoegen</h1>

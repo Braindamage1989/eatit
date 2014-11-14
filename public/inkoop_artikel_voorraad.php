@@ -23,7 +23,7 @@
 		mysqli_query($con, $update)
 			or die("Fout bij insert_into: ".mysqli_error($con));
 				
-		echo "<b>Toevoegen aan database gelukt!</b>";
+		echo "<span class=\"groenmelding\">Toevoegen aan database gelukt!</span>";
 	endif;
 ?>
 <h1>Voorraden van artikel bijwerken</h1>

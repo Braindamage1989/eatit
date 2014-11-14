@@ -39,6 +39,9 @@
 		</select>
 		<input type = "submit" value="Controleer" name="verzend">
 		</form>
+        <br/>
+        <br/>
+        <br/>
         <form action = "inkoop.php" method = "post">
 		<input type = "submit" name = "inkoop" value = "Terug naar Inkoop">
 	</form>

@@ -15,7 +15,6 @@
 ?>
 <h1>Bestellen bij leverancier</h1>
 <form action = "inkoop_leverancier_verwerk.php" method = "post">
-	Vink voor de gewenste maaltijd a.u.b. eerst de checkbox aan <br/>
 	<table border="1px">
 	<?php 
 		while($row_overzicht = mysqli_fetch_assoc($result_overzicht)){
@@ -37,6 +36,9 @@
         <input type="hidden" name="lev_nr" value="<?php echo $lev_nr; ?>" />
 	<input type = "submit" name = "verzend" value = "Geef uw bestelling door">
 </form>
+<br/>
+<br/>
+<br/>
 <form action = "inkoop.php" method = "post">
 	<input type = "submit" name = "inkoop" value = "Terug naar Inkoop">
 </form>

@@ -25,14 +25,14 @@ error_reporting(E_ALL);
         }
 	
 	if(isset($_POST['opslaan'])) :
-            if(!empty($_POST['omschrijving'])||!empty($_POST['verkoopprijs'])||!empty($_POST['verkoopprijs'])||!empty($_POST['categorie'])) {
+            if(!empty($_POST['omschrijving'])&&!empty($_POST['weeknr'])&&!empty($_POST['verkoopprijs'])&&!empty($_POST['categorie'])) {
 		$insert_into = "INSERT INTO recept (omschrijving, verkoopprijs, weeknr, categorie)";
 		$insert_into .= "VALUES ('". $_POST['omschrijving'] ."', ". $_POST['verkoopprijs'] .", ". $_POST['weeknr'] .", '". $_POST['categorie'] ."')";
 		mysqli_query($con, $insert_into)
 				or die("Fout bij insert_into: ".mysqli_error($con));
 				
-		echo "<b>Toevoegen aan database gelukt!</b>";
-            }else {echo "U dient alle tekstvelden in te voeren.";}
+		echo "<span class=\"groenmelding\">Toevoegen aan database gelukt!</span>";
+            }else {echo "<span class=\"melding\">U dient alle tekstvelden in te voeren.</span>";}
 	endif;
 ?>
 <h1>Recept toevoegen</h1>

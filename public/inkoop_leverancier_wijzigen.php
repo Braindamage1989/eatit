@@ -5,7 +5,7 @@
 	require("../includes/inc_connect.php");
 	require("../includes/inc_functions.php");
 	session_start();
-	if($_SESSION['functie'] != 'Medewerker inkoop'&&$_SESSION['functie'] != 'Hoofd commerciële afdeling'&&$_SESSION['functie'] != 'Chef de Cuisine') {
+	if($_SESSION['functie'] != 'Medewerker inkoop'&&$_SESSION['functie'] != 'Hoofd commerciele afdeling'&&$_SESSION['functie'] != 'Chef de Cuisine') {
 		redirect_to("medewerkers/index.php");
 	}
 ?>
@@ -17,6 +17,7 @@
         ?>      
                 <form action = "inkoop_leverancier_raadplegen.php" method = "post">
                     <input type = "submit" name = "inkoop_leverancier_raadplegen.php" value = "Terug">
+                    <?php include("../includes/layouts/inc_footer.php"); ?>
                 </form>
         <?php     die;
             endif;
@@ -37,12 +38,12 @@
 		mysqli_query($con, $update)
 			or die("Fout bij insert_into: ".mysqli_error($con));
 				
-		echo "<b>Wijziging gelukt!</b>";
+		echo "<span class=\"groenmelding\">Wijziging gelukt!</span>";
 	endif;
         
 
 ?>    
-<h1>Wijziging van leverancier</h1> <h2>
+<h1>Wijziging van leverancier</h1>
 <form action = "" method = "post">
 	<table>
 		<tr>

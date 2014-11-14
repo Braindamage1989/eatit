@@ -29,14 +29,14 @@ error_reporting(E_ALL);
             $dubbel_query = "SELECT * FROM artikelrecept WHERE artikelnr = {$_POST['artikelnr']} AND receptnr = {$_POST['receptnr']};";
             $dubbel_result = mysqli_query($con, $dubbel_query);
             if(mysqli_num_rows($dubbel_result) >=1) {
-                $melding = "Dit artikelnr bestaat al in het geselecteerde recept.";
+                $melding = "<span class=\"melding\">Dit artikelnr bestaat al in het geselecteerde recept.</span>";
             }else {
 		$insert_into = "INSERT INTO artikelrecept (receptnr, artikelnr, aantal)";
 		$insert_into .= "VALUES (". $_POST['receptnr'] .", ". $_POST['artikelnr'] .", ". $_POST['aantal'] .")";
 		mysqli_query($con, $insert_into)
 			or die("Fout bij insert_into: ".mysqli_error($con));
 				
-		$melding = "<b>Toevoegen aan database gelukt!</b>";
+		$melding = "<span class=\"groenmelding\">Toevoegen aan database gelukt!</span>";
             }
 	endif;
 ?>

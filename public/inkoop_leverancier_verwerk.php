@@ -24,7 +24,10 @@
         mysqli_query($con, $query_iko)
             or die("Fout bij inkooporder ".mysqli_error($con));
         
-        
+        if(empty($_POST['artikelnr'])) {
+            $_SESSION['message'] = "<span class=\"melding\">U heeft geen artikel geselecteerd.</span>";
+            redirect_to("inkoop.php");
+        }
         $ikonr = mysqli_insert_id($con);
         
 	foreach ($_POST['artikelnr'] as $sleutel => $waarde) :

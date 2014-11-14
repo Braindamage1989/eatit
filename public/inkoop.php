@@ -10,6 +10,13 @@
 	}
 ?>
         <h1>Inkoop</h1>
+<?php
+    if(isset($_SESSION['message'])) {
+        echo $_SESSION['message'];
+        $_SESSION['message'] = null;
+        echo "<br/>";
+    }
+?>
         <a href="inkoop_artikel_toevoegen.php">Artikel toevoegen</a><br />
         <a href="inkoop_recept_toevoegen.php">Recept toevoegen</a><br />
         <a href="inkoop_recept_artikel.php">Toevoegen van artikel aan recept</a><br />

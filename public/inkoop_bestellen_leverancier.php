@@ -22,6 +22,9 @@ Selecteer soort leverancier: <br />
 	</select>
 	<input type="submit" name="ophalen" value="Gegevens ophalen" />
 </form>
+<br/>
+<br/>
+<br/>
 <form action = "inkoop.php" method = "post">
 	<input type = "submit" name = "inkoop" value = "Terug naar Inkoop">
 </form>
