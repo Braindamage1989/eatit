@@ -19,11 +19,11 @@
 <table>
 <?php
         if(mysqli_num_rows($query_result) == 0) {
-            echo "Alle artikelen zijn nog op voorraad.";
+            echo "<span class=\"groenmelding\">Alle artikelen zijn nog op voorraad.</span>";
         }
 	while($query_row = mysqli_fetch_assoc($query_result)) {
 ?>
-	<tr><td>Artikel <?php echo $query_row['omschrijving'] . " heeft een voorraad van " . $query_row['tv']. " en moet worden bijbesteld." ?></td></tr>
+	<tr><td><span class="melding">Artikel <?php echo $query_row['omschrijving'] . " heeft een voorraad van " . $query_row['tv']. " en moet worden bijbesteld. " ?></span></td></tr>
 <?php
 	}
 ?>

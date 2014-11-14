@@ -9,6 +9,7 @@
 	session_start();
 	
 	$melding = null;
+        $fout = null;
 	
 	if($_SESSION['functie'] != 'Medewerker keuken' && $_SESSION['functie'] != 'Chef de Cuisine') {
 		redirect_to("medewerkers/index.php");
@@ -49,7 +50,7 @@
 			mysqli_query($con, $update)
 				or die("Fout bij insert_into: ".mysqli_error($con));
 				
-			$melding .= "<span class=\"melding\">Toevoegen aan database gelukt!</span>";
+			$melding .= "<span class=\"groenmelding\">Toevoegen aan database gelukt!</span>";
 		endif;
 	endif;
 	

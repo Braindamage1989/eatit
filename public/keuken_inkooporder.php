@@ -11,21 +11,18 @@
 		redirect_to("medewerkers/index.php");
 	}
 
-	$inkoop_query =	"SELECT * FROM inkooporder io
-					JOIN inkooporderregel ir
-					ON ir.inkoopordernr = io.inkoopordernr
-					ORDER BY io.leverdatum;";
+	$inkoop_query =	"SELECT * FROM inkooporder WHERE `status` BETWEEN 1 AND 3 ORDER BY leverdatum;";
 	$inkoop_result = mysqli_query($con, $inkoop_query);
 	
-	$ordernr_query = "SELECT inkoopordernr FROM inkooporder;";
+	$ordernr_query = "SELECT inkoopordernr FROM inkooporder WHERE `status` BETWEEN 1 AND 3;";
 	$ordernr_result = mysqli_query($con, $ordernr_query);
 	
 ?>	
 	<h1>Inkooporders</h1>
 <?php
-	if(isset($_SESSION['melding'])) {
-		echo $_SESSION['melding'];
-		$_SESSION['melding'] = null;
+	if(isset($_SESSION['message'])) {
+		echo $_SESSION['message'];
+		$_SESSION['message'] = null;
 	}
 ?>
 	<form action = "keuken_inkooporderregel.php" method = "post">
@@ -54,7 +51,7 @@
 		Wijzig status van inkooporder:<br/>
 		<?php echo "<select name = wijzig_inkoopordernr>";
 		while($ordernr_row = mysqli_fetch_assoc($ordernr_result)){
-			echo " <option value = \".$ordernr_row[inkoopordernr].\"> $ordernr_row[inkoopordernr]</option>";
+			echo " <option value = \"$ordernr_row[inkoopordernr]\"> $ordernr_row[inkoopordernr]</option>";
 		} echo "</select>"; 
 		?> 
 		<input type = "submit" name = "wijzig_inkooporder" value = "Wijzig">

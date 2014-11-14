@@ -28,15 +28,15 @@
 
 <?php
 	$wijzig_query = "UPDATE inkooporder
-					SET status = {$status}
-					WHERE inkoopordernr = {$inkoopordernr};";
+                        SET status = {$status}
+                        WHERE inkoopordernr = {$inkoopordernr};";
 	$wijzig_result = mysqli_query($con, $wijzig_query);
 	
 	if($wijzig_result) {
-		$_SESSION['message'] = "Status gewijzigd.";
+		$_SESSION['message'] = "<span class=\"groenmelding\">Status gewijzigd.</span>";
 		redirect_to("keuken_inkooporder.php");
 	} else {
-		$_SESSION['message'] = "Fout bij wijzigen van de status.";
+		$_SESSION['message'] = "<span class=\"melding\">Fout bij wijzigen van de status.</span>";
 		redirect_to("keuken_inkooporder.php");
 	}
 ?>
