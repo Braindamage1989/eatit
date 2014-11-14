@@ -17,13 +17,13 @@
         $result_klantgegevens = mysqli_query($con, $query_klantgegevens);
         
         if(isset($_POST['wijzig'])) {
-            $voornaam = $_POST['voornaam'];
-            $achternaam = $_POST['achternaam'];
-            $adres = $_POST['adres'];
-            $postcode = $_POST['postcode'];
+            $voornaam = ucfirst(trim($_POST['voornaam']));
+            $achternaam = ucfirst(trim($_POST['achternaam']));
+            $adres = ucfirst(trim($_POST['adres']));
+            $postcode = trim($_POST['postcode']);
             $telefoonnr = $_POST['telefoonnummer'];
-            $email = $_POST['email'];
-            $wachtwoord = $_POST['wachtwoord'];
+            $email = trim($_POST['email']);
+            $wachtwoord = trim($_POST['wachtwoord']);
             
             $query_wijzig =     "UPDATE klant SET voornaam = '$voornaam', achternaam = '$achternaam', adres = '$adres',
                                 postcode = '$postcode', telefoonnr = $telefoonnr, email = '$email', wachtwoord = '$wachtwoord'
@@ -63,7 +63,7 @@
 			<td>Plaats: </td>	<td><input type = "text" name = "plaats" value="Groningen" readonly="readonly" ></td><td>*</td>
 		</tr>
 		<tr>
-                        <td>Telefoonnumer: </td>	<td><input type = "text" maxlength="10" name = "telefoonnummer" value="<?php echo $row_klantgegevens['telefoonnr'];?>"></td><td>*</td>
+                        <td>Telefoonnumer: </td>	<td><input type = "number" maxlength="10" min="0" name = "telefoonnummer" value="<?php echo $row_klantgegevens['telefoonnr'];?>"></td><td>*</td>
 		</tr>
 		<tr>
 			<td><input type = "submit" name = "wijzig" value = "Wijzig"</td><td></td>

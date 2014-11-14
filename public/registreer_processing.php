@@ -7,12 +7,12 @@
 		redirect_to("registreer.php");
 	}
 	
-	$email = $_POST['email'];
-	$wachtwoord = $_POST['wachtwoord'];
-	$voornaam = $_POST['voornaam'];
-	$achternaam = $_POST['achternaam'];
-	$adres = $_POST['adres'];
-	$postcode = $_POST['postcode'];
+	$email = trim($_POST['email']);
+	$wachtwoord = trim($_POST['wachtwoord']);
+	$voornaam = ucfirst(trim($_POST['voornaam']));
+	$achternaam = ucfirst(trim($_POST['achternaam']));
+	$adres = ucfirst(trim($_POST['adres']));
+	$postcode = trim($_POST['postcode']);
 	$plaats = $_POST['plaats'];
 	$telefoonnummer = $_POST['telefoonnummer'];
 	

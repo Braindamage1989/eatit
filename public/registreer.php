@@ -42,7 +42,7 @@
 			<td>Plaats: </td>	<td><input type = "text" maxlength="50" name = "plaats" value="Groningen" readonly="readonly" /></td><td>Maximaal 50 tekens</td>
 		</tr>
 		<tr>
-			<td>Telefoonnumer: </td>	<td><input type = "text" maxlength="10" name = "telefoonnummer" /></td><td>Maximaal 10 tekens</td>
+			<td>Telefoonnumer: </td>	<td><input type = "number" maxlength="10" min="0" name = "telefoonnummer" /></td><td>Maximaal 10 tekens</td>
 		</tr>
 		<tr>
 			<td><input type = "submit" name = "registreer" value = "Registreer"</td><td></td>
