@@ -25,10 +25,10 @@
 				ON rc.receptnr = og.receptnr
 				WHERE od.status=1";*/
         $verkoop_query =	"SELECT DISTINCT ordernr, status, ordertijd FROM `order`
-				WHERE status=1";
+				WHERE status BETWEEN 1 AND 7";
 	$verkoop_result = mysqli_query($con, $verkoop_query);
 	
-	$ordernr_query = "SELECT ordernr FROM `order` WHERE status=1;";
+	$ordernr_query = "SELECT ordernr FROM `order` WHERE status BETWEEN 1 AND 7;";
 	$ordernr_result = mysqli_query($con, $ordernr_query);
 	
         if(isset($_POST['verzend_verkooporderregel'])):
