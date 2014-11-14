@@ -41,7 +41,7 @@
 		mysqli_query($con, $query_opslaan)
 			or die("Error: ".mysqli_error($con));
 			
-		$melding = "<b>Record met het inkooporderregelnummer ". $_POST['inkooporderregelnr'] ." is bijgewerkt.</b>";
+		$melding = "<span class=\"groenmelding\">Record met het inkooporderregelnummer ". $_POST['inkooporderregelnr'] ." is bijgewerkt.</span>";
 		$terug = 1;
 	endif;
 	
@@ -92,6 +92,9 @@
 		
 	<input type="hidden" name="inzien" value="<?php echo $rij['inkooporderregelnr']; ?>" />
 	<input type="submit" name="opslaan" value="Opslaan" />
+        <br/>
+        <br/>
+        <br/>
 	
 	<?php
 			if(isset($terug)):
@@ -110,8 +113,7 @@
 			endif;
 		endwhile;
 	?>
-	<br />
-	<b>Alleen velden met een * kunnen bewerkt worden</b>
+	
 <?php
 	require("../includes/layouts/inc_footer.php");
 ?>
