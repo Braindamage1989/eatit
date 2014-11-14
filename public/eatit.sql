@@ -261,7 +261,7 @@ INSERT INTO `medewerkers` (`medewerkernr`, `voornaam`, `achternaam`, `telefoonnr
 (15, 'Sil', 'Menens', '503455487', 'Chauffeur', 'wachtwoord', 'silmenens@gmail.com'),
 (16, 'Vincent', 'Achterhoek', '598426879', 'Chauffeur', 'wachtwoord', 'vincentachterhoek@gmail.com'),
 (17, 'Mark', 'de Jong', '503477858', 'Chauffeur', 'wachtwoord', 'markdejong@gmail.com'),
-(18, 'Hanneke', 'Scheepstra', '564889971', 'Hoofd commerciële afdeling', 'wachtwoord', 'hannekescheepstra@gmail.com'),
+(18, 'Hanneke', 'Scheepstra', '564889971', 'Hoofd commerciele afdeling', 'wachtwoord', 'hannekescheepstra@gmail.com'),
 (19, 'Lars', 'Pieters', '504489652', 'Medewerker inkoop', 'wachtwoord', 'larspieters@gmail.com'),
 (20, 'Hanneke', 'Jubel', '504455695', 'Medewerker verkoop', 'wachtwoord', 'hannekejubel@gmail.com'),
 (21, 'Marik', 'Temp', '504444558', 'Medewerker verkoop', 'wachtwoord', 'mariktemp@gmail.com'),
