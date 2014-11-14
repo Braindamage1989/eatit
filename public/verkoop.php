@@ -9,7 +9,7 @@
 		redirect_to("medewerkers/index.php");
 	}
 ?>
-<h2>Verkoop</h2>
+<h1>Verkoop</h1>
 
 <form action = "verkooporder.php" method = "post">
 	<table>
