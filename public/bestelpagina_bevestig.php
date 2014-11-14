@@ -41,10 +41,11 @@
                             
                                 if ($num_aantal == 0) :
                                     $receptnaam = "SELECT * FROM recept WHERE receptnr=$sleutel";
-                                    $receptnaam_result = mysqli_query($con, $receptnaam_result);
+                                    $receptnaam_result = mysqli_query($con, $receptnaam);
                                 
-                                    while ($rij = mysqli_fetch_assoc($receptnaam)) :
+                                    while ($rij = mysqli_fetch_assoc($receptnaam_result)) :
                                         $melding .= "<span class=\"melding\">De bestelling ". $rij['omschrijving'] ." is niet voldoende op voorraad.<br /></span>";
+                                        $melding .= "</br> <a href=\"bestelpagina.php\">Ga terug naar de bestelpagina</a>";
                                     endwhile;
                                     
                                     unset ($_SESSION['bestelling'][$sleutel]);
