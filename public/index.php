@@ -22,9 +22,9 @@
 				$_SESSION['klantnr'] = $rij['klantnr'];
 			endwhile;
 		elseif (empty($_POST['email']) && empty($_POST['wachtwoord'])) :
-			$melding .= "<b>Je hebt niets ingevoerd</b><br/><br/>";
+			$melding .= "<span class=\"melding\">Je hebt niets ingevoerd</span><br/><br/>";
 		elseif ($aantal_rijen == 0) :
-			$melding .= "<b>De ingevoerde gegevens komen niet overeen</b><br/><br/>";
+			$melding .= "<span class=\"melding\">De ingevoerde gegevens komen niet overeen</span><br/><br/>";
 		endif;
 	endif;
 	

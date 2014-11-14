@@ -42,9 +42,9 @@
 				$_SESSION['functie'] = $rij['functie'];
 			endwhile;
 		elseif (empty($_POST['email']) && empty($_POST['wachtwoord'])) :
-			$melding .= "<b>Je hebt niets ingevoerd</b><br/><br/>";
+			$melding .= "<span class=\"melding\">Je hebt niets ingevoerd</span><br/><br/>";
 		elseif ($aantal_rijen == 0) :
-			$melding .= "<b>De ingevoerde gegevens komen niet overeen</b><br/><br/>";
+			$melding .= "<span class=\"melding\">De ingevoerde gegevens komen niet overeen</span><br/><br/>";
 		endif;
 	endif;
 	
@@ -89,7 +89,7 @@
 				case 'Medewerker verkoop':
 					redirect_to("../verkoop.php");
 				break;
-				default: $melding = "U bent niet gemachtigd om in te loggen.";
+				default: $melding = "<span class=\"melding\">U bent niet gemachtigd om in te loggen.</span>";
 			}
 	endif;
 	echo $melding;
